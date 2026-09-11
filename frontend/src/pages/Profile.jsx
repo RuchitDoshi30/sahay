@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import '../styles/layout.css'
+import '../styles/components.css'
+import '../styles/responsive.css'
 
 function Profile() {
   const navigate = useNavigate()
