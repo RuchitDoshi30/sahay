@@ -1,0 +1,1019 @@
+/* PROFILE COMPONENTS */
+
+.small-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--green);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.progress-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 13px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: var(--white);
+    color: var(--green);
+    font-size: 10px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.progress-indicator strong {
+    color: #8a938d;
+}
+
+.primary-btn {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    background: var(--green);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 10px 24px rgba(23, 107, 77, 0.2);
+    transition: all 0.2s ease;
+}
+
+.primary-btn:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+}
+
+.arrow {
+    margin-left: 15px;
+    font-size: 17px;
+}
+
+.profile-form-card {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: var(--white);
+    box-shadow: 0 18px 55px rgba(27, 47, 37, 0.06);
+}
+
+.form-section {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 15px;
+    padding: 29px 34px;
+    border-bottom: 1px solid var(--line);
+}
+
+.field-number {
+    padding-top: 4px;
+    color: #a5aea8;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.field-content>label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.field-help {
+    margin-bottom: 17px;
+    color: #89938c;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.choice-grid,
+.purpose-grid,
+.location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    max-width: 500px;
+}
+
+.choice-button,
+.purpose-card {
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    background: #fbfcfb;
+    color: #48554d;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.choice-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 55px;
+    padding: 11px 14px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.choice-button:hover,
+.purpose-card:hover {
+    border-color: #b9c8bf;
+}
+
+.choice-button.selected,
+.purpose-card.selected {
+    border-color: var(--green);
+    background: var(--green-soft);
+    color: var(--green-dark);
+}
+
+.choice-icon,
+.purpose-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: #e9eeea;
+    color: #6e7b73;
+}
+
+.choice-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+}
+
+.choice-button.selected .choice-icon {
+    background: var(--green);
+    color: var(--white);
+}
+
+.purpose-card {
+    min-height: 105px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.purpose-icon {
+    width: 31px;
+    height: 31px;
+    margin-bottom: 10px;
+    color: var(--green);
+    font-size: 14px;
+}
+
+.purpose-card strong {
+    margin-bottom: 3px;
+    color: var(--ink);
+    font-size: 12px;
+}
+
+.purpose-card small {
+    color: #89938d;
+    font-size: 9px;
+}
+
+.money-input,
+.field-content>select,
+.location-grid input {
+    height: 52px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--white);
+}
+
+.money-input {
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    overflow: hidden;
+}
+
+.money-input>span {
+    width: 45px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f4f7f4;
+    color: var(--green);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.money-input input {
+    flex: 1;
+    height: 100%;
+    padding: 0 15px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--ink);
+    font-size: 14px;
+}
+
+.money-input:focus-within,
+.field-content>select:focus,
+.location-grid input:focus {
+    border-color: var(--green);
+    outline: none;
+}
+
+.field-content>select,
+.location-grid input {
+    width: 100%;
+    padding: 0 14px;
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.field-content>select {
+    max-width: 500px;
+    cursor: pointer;
+}
+
+.sub-label {
+    display: block;
+    margin-bottom: 7px;
+    color: #7d8780;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.form-error {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 20px 34px 0;
+    padding: 12px 14px;
+    border: 1px solid #f0d8d1;
+    border-radius: 9px;
+    background: #fff4f1;
+    color: #a04d3e;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.form-error span {
+    width: 19px;
+    height: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #a04d3e;
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.form-footer {
+    padding: 23px 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: #fbfcfb;
+}
+
+.form-footer>div {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #8a938d;
+    font-size: 10px;
+}
+
+.secure-mark {
+    color: var(--green);
+    font-weight: 800;
+}
+
+.profile-submit {
+    white-space: nowrap;
+}
+
+.profile-sidebar {
+    position: sticky;
+    top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.profile-journey-card {
+    padding: 25px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--white);
+    box-shadow: 0 15px 45px rgba(27, 47, 37, 0.05);
+}
+
+.journey-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+}
+
+.journey-header h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.journey-badge {
+    padding: 7px 10px;
+    border-radius: 7px;
+    background: #f2f5f2;
+    color: #66716a;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.profile-steps {
+    padding-top: 18px;
+}
+
+.profile-step {
+    display: grid;
+    grid-template-columns: 39px 1fr;
+    gap: 11px;
+    align-items: center;
+}
+
+.profile-step-icon {
+    width: 39px;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: #f1f4f1;
+    color: #718078;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.profile-step.current .profile-step-icon {
+    background: var(--green-soft);
+    color: var(--green);
+}
+
+.profile-step strong,
+.profile-step span {
+    display: block;
+}
+
+.profile-step strong {
+    margin-bottom: 3px;
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.profile-step span {
+    color: #909991;
+    font-size: 9px;
+}
+
+.profile-step-line {
+    width: 1px;
+    height: 17px;
+    margin-left: 19px;
+    background: #dce3dd;
+}
+
+.profile-tip-card {
+    padding: 23px;
+    border-radius: 17px;
+    background: var(--green-dark);
+    color: var(--white);
+}
+
+.tip-label {
+    display: block;
+    margin-bottom: 11px;
+    color: #a7c6b7;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.profile-tip-card h4 {
+    margin-bottom: 10px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 17px;
+    line-height: 1.25;
+}
+
+.profile-tip-card p {
+    color: #b9ccc1;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+/* HOME COMPONENTS */
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 13px;
+    margin-bottom: 25px;
+    background: var(--green-soft);
+    border: 1px solid #d6e6db;
+    border-radius: 100px;
+    color: var(--green-dark);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+}
+
+.hero-content h1 {
+    margin-bottom: 25px;
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -2.8px;
+    font-weight: 800;
+}
+
+.hero-content h1 span,
+.section-heading h2 span {
+    color: var(--green);
+}
+
+.hero-description {
+    max-width: 570px;
+    margin-bottom: 32px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 13px;
+    flex-wrap: wrap;
+}
+
+.secondary-btn,
+.cta-btn {
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.secondary-btn {
+    background: var(--white);
+    color: var(--ink);
+    border: 1px solid var(--line);
+}
+
+.secondary-btn:hover {
+    border-color: #bcc9c0;
+    background: #fbfcfb;
+}
+
+.trust-note {
+    margin-top: 20px;
+    color: #7b857f;
+    font-size: 11px;
+}
+
+.trust-note span {
+    margin-right: 6px;
+    color: var(--green);
+    font-weight: 800;
+}
+
+.journey-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    justify-self: end;
+}
+
+.journey-card {
+    padding: 30px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    box-shadow: 0 25px 70px rgba(27, 47, 37, 0.09);
+}
+
+.journey-steps {
+    padding-top: 20px;
+}
+
+.journey-step {
+    display: grid;
+    grid-template-columns: 31px 42px 1fr;
+    align-items: center;
+    gap: 12px;
+    padding: 7px 0;
+}
+
+.step-number {
+    color: #a2aaa5;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.step-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #f1f4f1;
+    color: #657169;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.journey-step.active .step-icon {
+    background: var(--green-soft);
+    color: var(--green);
+}
+
+.journey-step h4 {
+    margin-bottom: 4px;
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.journey-step p {
+    color: #8a938d;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.journey-line {
+    width: 1px;
+    height: 17px;
+    margin-left: 51px;
+    background: #dce3dd;
+}
+
+.floating-card {
+    position: absolute;
+    bottom: -27px;
+    left: -34px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 13px 17px;
+    background: var(--ink);
+    border-radius: 13px;
+    color: var(--white);
+    box-shadow: 0 15px 35px rgba(23, 35, 29, 0.2);
+}
+
+.floating-icon {
+    width: 29px;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: var(--green);
+    font-size: 12px;
+}
+
+.floating-card span {
+    display: block;
+    margin-bottom: 2px;
+    color: #a9b3ad;
+    font-size: 8px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.floating-card strong {
+    font-size: 12px;
+}
+
+.section-heading h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(35px, 4vw, 51px);
+    line-height: 1.1;
+    letter-spacing: -2px;
+    font-weight: 800;
+}
+
+.section-heading>p {
+    max-width: 480px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.feature-card {
+    position: relative;
+    min-height: 280px;
+    padding: 30px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    transition: background 0.2s ease;
+}
+
+.feature-card:hover {
+    background: #fbfcfb;
+}
+
+.feature-number {
+    color: #a4ada7;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.feature-icon {
+    width: 44px;
+    height: 44px;
+    margin: 35px 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--green-soft);
+    color: var(--green);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.feature-card h3 {
+    margin-bottom: 12px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.feature-card p {
+    max-width: 240px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.75;
+}
+
+.cta-content h2 {
+    margin-bottom: 20px;
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(34px, 4vw, 50px);
+    line-height: 1.1;
+    letter-spacing: -1.8px;
+}
+
+.cta-content p {
+    max-width: 480px;
+    margin-bottom: 28px;
+    color: #c5d4cc;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.small-label.light {
+    color: #a8c9b8;
+}
+
+.cta-btn {
+    background: var(--white);
+    color: var(--green-dark);
+    border: none;
+}
+
+.cta-btn span {
+    margin-left: 18px;
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px);
+}
+
+.cta-decoration {
+    position: absolute;
+    top: -100px;
+    right: -80px;
+    width: 480px;
+    height: 480px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.cta-decoration div {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+}
+
+.cta-decoration div:nth-child(1) {
+    inset: 45px;
+}
+
+.cta-decoration div:nth-child(2) {
+    inset: 100px;
+}
+
+.cta-decoration div:nth-child(3) {
+    inset: 155px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PARTNERS PAGE COMPONENTS
+   Owner: Pair 3 (Jaymin + Anjali)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Kicker / eyebrow badge — reusable pattern ──────────────────────────────
+   NOTE: .pl-kicker shares the same visual pattern as .eyebrow (Home page).
+   Both are pill-shaped label badges. If you need this style on a new page,
+   use .eyebrow (already in this file) rather than adding a new class. */
+.pl-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    margin-bottom: 12px;
+    padding: 6px 9px;
+    color: var(--pl-brand-dark);
+    background: #e7f4ec;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* Animated live indicator dot — reusable pattern ─────────────────────────────
+   NOTE: .pl-live-dot shares the visual pattern as .eyebrow-dot (Home page).
+   Both are small circular status indicators. */
+.pl-live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--pl-brand);
+    box-shadow: 0 0 0 4px rgba(8, 122, 77, 0.12);
+}
+
+/* ─── Search input wrapper ────────────────────────────────────────────────── */
+.pl-search-wrap {
+    margin: 20px 20px 12px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 14px;
+    background: #fff;
+    color: #98a2b3;
+    border: 1px solid #d0d5dd;
+    border-radius: 9px;
+    box-shadow: 0 3px 12px rgba(21, 53, 38, 0.04);
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.pl-search-wrap:focus-within {
+    border-color: var(--pl-brand);
+    box-shadow: 0 0 0 4px rgba(8, 122, 77, 0.11);
+}
+
+.pl-search-wrap input {
+    width: 100%;
+    min-width: 0;
+    height: 48px;
+    padding: 0;
+    color: var(--pl-ink, #17251e);
+    background: transparent;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    font-size: 13px;
+}
+
+.pl-search-wrap input::placeholder { color: #98a2b3; }
+
+/* Shared icon-button style — used inside search + standalone ─────────────────
+   NOTE: .pl-icon-button reuses the same ghost-button pattern as
+   .secondary-btn (Home/Profile). If you need a 30×30 icon-only button
+   elsewhere, add this class rather than creating a new one. */
+.pl-search-wrap button,
+.pl-icon-button {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    padding: 0;
+    color: #667085;
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.pl-search-wrap button:hover,
+.pl-icon-button:hover { color: var(--pl-ink, #17251e); background: #f2f4f7; }
+
+/* Global focus ring for all interactive elements inside .pl-root */
+.pl-root button:focus-visible,
+.pl-root a:focus-visible,
+.pl-root input:focus-visible,
+.pl-root select:focus-visible {
+    outline: 3px solid rgba(8, 122, 77, 0.25);
+    outline-offset: 2px;
+}
+
+/* ─── Filter chip row ─────────────────────────────────────────────────────── */
+.pl-filters {
+    display: flex;
+    gap: 7px;
+    padding: 0 20px 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.pl-filters::-webkit-scrollbar { display: none; }
+
+.pl-filters button {
+    min-height: 34px;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 11px;
+    color: #475467;
+    background: #fff;
+    border: 1px solid #e4e7ec;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 750;
+    cursor: pointer;
+    transition: all 160ms ease;
+}
+.pl-filters button:hover    { border-color: #8bc4a8; color: var(--pl-brand-dark); background: #f4faf6; }
+.pl-filters button.is-active { color: #fff; background: var(--pl-brand); border-color: var(--pl-brand); box-shadow: 0 5px 14px rgba(8, 122, 77, 0.2); }
+
+/* ─── Results toolbar (count + sort) ─────────────────────────────────────── */
+.pl-results-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 13px 20px;
+    border-top: 1px solid #f2f4f7;
+    border-bottom: 1px solid #e2e8e4;
+}
+.pl-results-toolbar > div  { display: grid; gap: 2px; min-width: 0; }
+.pl-results-toolbar strong { font-size: 13px; }
+.pl-results-toolbar span   { color: var(--pl-muted, #66736c); font-size: 10px; }
+
+.pl-sort {
+    height: 32px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 8px;
+    color: #667085;
+    border: 1px solid #e4e7ec;
+    border-radius: 9px;
+}
+.pl-sort select { max-width: 102px; color: #344054; background: transparent; border: 0; outline: 0; font: inherit; font-size: 10px; font-weight: 700; cursor: pointer; }
+
+/* ─── Partner card — list item ────────────────────────────────────────────── */
+.pl-card {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr) 22px;
+    gap: 11px;
+    align-items: start;
+    margin: 0 0 8px;
+    padding: 14px 11px;
+    color: var(--pl-ink, #17251e);
+    text-align: left;
+    background: #fff;
+    border: 1px solid #eaecf0;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+.pl-card:hover       { transform: translateY(-1px); border-color: #9ccdb5; box-shadow: 0 8px 20px rgba(21, 53, 38, 0.07); }
+.pl-card.is-selected { background: #f3faf6; border-color: var(--pl-brand); box-shadow: 0 0 0 3px rgba(8, 122, 77, 0.08); }
+
+.pl-card__number  { width: 34px; height: 34px; display: grid; place-items: center; color: var(--pl-brand-dark); background: #e4f3ea; border-radius: 8px; font-size: 12px; font-weight: 850; }
+.pl-card__content { min-width: 0; display: grid; gap: 6px; }
+.pl-card__topline { min-width: 0; display: flex; justify-content: space-between; gap: 8px; }
+.pl-card__name    { overflow: hidden; font-size: 13px; font-weight: 800; text-overflow: ellipsis; white-space: nowrap; }
+.pl-card__distance { flex: 0 0 auto; color: var(--pl-brand-dark); font-size: 11px; font-weight: 800; }
+.pl-card__meta    { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 8px; color: var(--pl-muted, #66736c); font-size: 10px; }
+.pl-card__reason  { overflow: hidden; color: #475467; font-size: 10px; line-height: 1.45; text-overflow: ellipsis; white-space: nowrap; }
+.pl-card__chevron { align-self: center; color: #98a2b3; }
+.pl-card.is-selected .pl-card__chevron { color: var(--pl-brand); }
+
+/* Verified badge — reusable pattern ─────────────────────────────────────────
+   NOTE: .pl-verified shares the visual pattern as .secure-mark (Profile form).
+   Both display a green checkmark/text indicating trustworthiness. */
+.pl-verified { display: inline-flex; align-items: center; gap: 3px; color: var(--pl-success); font-weight: 800; }
+
+/* Scheme chips — reusable pattern ───────────────────────────────────────────
+   NOTE: .pl-scheme-chip reuses the same pill style as Profile's .choice-button
+   selected state. Use .pl-scheme-chip for any small scheme label tag. */
+.pl-card__schemes { display: flex; flex-wrap: wrap; gap: 5px; }
+.pl-card__schemes span,
+.pl-scheme-chip { padding: 4px 7px; color: #0b6845; background: #e8f5ed; border-radius: 5px; font-size: 9px; font-weight: 750; }
+
+/* ─── Empty state ─────────────────────────────────────────────────────────── */
+.pl-empty { min-height: 290px; display: grid; place-items: center; align-content: center; padding: 30px; text-align: center; }
+.pl-empty > span   { width: 54px; height: 54px; display: grid; place-items: center; margin-bottom: 13px; color: var(--pl-brand); background: #e4f3ea; border-radius: 12px; }
+.pl-empty strong   { font-size: 14px; }
+.pl-empty p        { max-width: 250px; margin: 6px 0 15px; color: var(--pl-muted, #66736c); font-size: 11px; line-height: 1.5; }
+.pl-empty button   { padding: 8px 12px; color: var(--pl-brand-dark); background: #e8f5ed; border: 0; border-radius: 7px; font: inherit; font-size: 11px; font-weight: 800; cursor: pointer; }
+
+/* ─── Map marker ─────────────────────────────────────────────────────────── */
+.pl-marker-wrap { background: transparent; border: 0; }
+
+.pl-marker {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: var(--pl-brand);
+    border: 3px solid #fff;
+    border-radius: 50% 50% 50% 8px;
+    box-shadow: 0 8px 20px rgba(7, 91, 61, 0.3);
+    transform: rotate(-45deg);
+    transition: width 160ms ease, height 160ms ease, background 160ms ease;
+}
+.pl-marker::after  { content: ""; position: absolute; inset: 5px; border: 1px solid rgba(255,255,255,.35); border-radius: inherit; }
+.pl-marker span    { position: relative; z-index: 1; font: 800 12px/1 Inter, sans-serif; transform: rotate(45deg); }
+.pl-marker.is-selected { width: 52px; height: 52px; background: #17251e; box-shadow: 0 10px 25px rgba(23, 37, 30, 0.32); }
+
+/* ─── Map popup ───────────────────────────────────────────────────────────── */
+.pl-map .leaflet-popup-content-wrapper { border-radius: 10px; box-shadow: 0 16px 40px rgba(21, 53, 38, 0.17); }
+.pl-map .leaflet-popup-content         { width: 240px !important; margin: 15px; }
+.pl-popup__eyebrow        { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 7px; font-size: 10px; }
+.pl-popup__eyebrow span   { display: inline-flex; align-items: center; gap: 4px; color: var(--pl-success); font-weight: 800; }
+.pl-popup__eyebrow strong { color: var(--pl-brand-dark); }
+.pl-popup h3              { margin: 0; color: var(--pl-ink, #17251e); font-size: 14px; line-height: 1.3; }
+.pl-popup p               { margin: 4px 0 10px; color: var(--pl-muted, #66736c); font-size: 10px; }
+.pl-popup button          { width: 100%; display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 12px; padding: 9px; color: #fff; background: var(--pl-brand); border: 0; border-radius: 9px; font: inherit; font-size: 10px; font-weight: 800; cursor: pointer; }
+
+/* ─── Loading spinner ─────────────────────────────────────────────────────── */
+.pl-spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #cce8d8;
+    border-top-color: var(--pl-brand);
+    border-radius: 50%;
+    animation: pl-spin .75s linear infinite;
+    /* @keyframes pl-spin is defined in global.css */
+}
+
+/* ─── Detail panel inner components ──────────────────────────────────────── */
+.pl-detail__badges            { display: flex; flex-wrap: wrap; gap: 6px; }
+.pl-detail__badges > span     { display: inline-flex; align-items: center; gap: 4px; padding: 4px 6px; color: #475467; background: #f2f4f7; border-radius: 6px; font-size: 9px; font-weight: 750; }
+.pl-detail__badges .pl-detail__verified { color: var(--pl-success); background: #ecfdf3; }
+.pl-detail__row               { display: grid; grid-template-columns: 32px 1fr; gap: 9px; align-items: start; }
+.pl-detail__row-icon          { width: 32px; height: 32px; display: grid; place-items: center; color: var(--pl-brand); background: #e8f5ed; border-radius: 7px; }
+.pl-detail__row div           { display: grid; gap: 3px; }
+.pl-detail__row strong,
+.pl-detail__section > strong  { font-size: 10px; }
+.pl-detail__row span          { color: var(--pl-muted, #66736c); font-size: 10px; line-height: 1.45; }
+.pl-detail__section           { display: grid; gap: 7px; }
+.pl-detail__chips             { display: flex; flex-wrap: wrap; gap: 5px; }
+.pl-detail__chips span        { padding: 5px 7px; color: #0b6845; background: #e8f5ed; border-radius: 6px; font-size: 9px; font-weight: 750; }
+
+/* Match note — why this partner was recommended */
+.pl-match-note        { display: grid; grid-template-columns: 20px 1fr; gap: 8px; padding: 10px; color: #174c36; background: #eff8f3; border: 1px solid #cce8d8; border-radius: 8px; }
+.pl-match-note p      { display: grid; gap: 2px; margin: 0; }
+.pl-match-note strong { font-size: 10px; }
+.pl-match-note span   { font-size: 9px; line-height: 1.45; }
+
+/* ─── Button variants — reusable across Partners page ────────────────────────
+   NOTE: .pl-button follows the same base pattern as .primary-btn / .secondary-btn.
+   Use these specifically inside .pl-root to avoid style leakage. */
+.pl-button           { min-height: 36px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 11px; border: 1px solid transparent; border-radius: 9px; font: inherit; font-size: 9px; font-weight: 800; text-decoration: none; cursor: pointer; }
+.pl-button--primary  { color: #fff; background: var(--pl-brand); }
+.pl-button--primary:hover { background: var(--pl-brand-dark); }
+.pl-button--secondary { color: #344054; background: #fff; border-color: #d0d5dd; }
+.pl-button--ghost    { margin-left: auto; color: var(--pl-brand-dark); background: transparent; }
