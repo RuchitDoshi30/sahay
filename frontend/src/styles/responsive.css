@@ -256,8 +256,11 @@
     /* Hide sidebar footer (data source) on mobile */
     .pl-sidebar__footer { display: none; }
 
-    /* Floating "Show Results" button — centred over map (shown only on mobile) */
+    /* Floating "Show Results" button — centred over map (shown only on mobile).
+       position:absolute + z-index required — .pl-map-wrap is already position:relative */
     .pl-mobile-results-button {
+        position: absolute;
+        z-index: 800;
         bottom: 16px;
         left: 50%;
         height: 44px;
