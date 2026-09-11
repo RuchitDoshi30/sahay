@@ -16,6 +16,7 @@ import "leaflet/dist/leaflet.css";
 // layout.css → .pl-root, .pl-workspace, .pl-sidebar, .pl-map-wrap, .pl-detail
 // components.css → .pl-card, .pl-marker, .pl-filters, .pl-button, etc.
 // responsive.css → @media (max-width: 900px / 720px)
+import "./PartnerLocator.css";
 
 const DEFAULT_CENTER = { latitude: 22.3039, longitude: 70.8022 };
 
