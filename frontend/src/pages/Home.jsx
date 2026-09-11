@@ -1,3 +1,4 @@
+<<<<<<< feature/frontend-home
 import { useNavigate } from 'react-router-dom'
 
 function Home() {
@@ -450,6 +451,10 @@ function Home() {
 
         </div>
     )
+=======
+function Home() {
+    return <h1>Home Page</h1>
+>>>>>>> main
 }
 
 export default Home

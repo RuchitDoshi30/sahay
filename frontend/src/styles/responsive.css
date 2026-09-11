@@ -1,0 +1,289 @@
+/* PROFILE PAGE RESPONSIVE */
+
+@media (max-width: 950px) {
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* HOME PAGE RESPONSIVE */
+
+@media (max-width: 1050px) {
+    .hero-section {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .hero-content {
+        max-width: 750px;
+    }
+
+    .journey-wrapper {
+        justify-self: start;
+    }
+
+    .section-heading {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* SHARED RESPONSIVE - Navbar adjustments for both Home and Profile */
+
+@media (max-width: 700px) {
+    .navbar-inner {
+        width: 90%;
+    }
+
+    .site-navbar {
+        height: 70px;
+    }
+
+    .navbar-links a {
+        display: none;
+    }
+
+    .hero-section {
+        padding: 65px 5% 90px;
+    }
+
+    .hero-content h1 {
+        font-size: 43px;
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .journey-card {
+        padding: 22px;
+    }
+
+    .floating-card {
+        left: 10px;
+    }
+
+    .why-section {
+        padding: 80px 5%;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+        min-height: auto;
+    }
+
+    .cta-section {
+        padding: 70px 7%;
+    }
+
+    .footer {
+        padding: 25px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 650px) {
+    .profile-main {
+        padding: 50px 5% 70px;
+    }
+
+    .profile-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .profile-heading h1 {
+        font-size: 42px;
+    }
+
+    .form-section {
+        grid-template-columns: 28px 1fr;
+        padding: 25px 20px;
+    }
+
+    .choice-grid,
+    .purpose-grid,
+    .location-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .profile-submit {
+        width: 100%;
+    }
+
+    .profile-sidebar {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 450px) {
+    .brand-subtitle {
+        display: none;
+    }
+
+    .hero-content h1 {
+        font-size: 37px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+    }
+
+    .journey-header {
+        flex-direction: column;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PARTNERS PAGE RESPONSIVE
+   Owner: Pair 3 (Jaymin + Anjali)
+   Breakpoints: 900px (tablet), 720px (mobile), 900px hero tweak
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Tablet — narrow sidebar, hide trust badge ───────────────────────────── */
+@media (max-width: 900px) {
+    /* Hero strip — stack vertically, hide trust stat widget */
+    .pl-hero           { align-items: flex-start; }
+    .pl-hero__trust    { display: none; }
+
+    /* Narrow sidebar slightly */
+    .pl-workspace { grid-template-columns: 340px minmax(0, 1fr); }
+
+    /* Narrower detail panel on tablet */
+    .pl-detail { width: min(340px, calc(100% - 36px)); }
+}
+
+/* ─── Mobile — full-screen map, slide-up sidebar sheet ────────────────────── */
+@media (max-width: 720px) {
+    /* Tighten root card radius */
+    .pl-root { border-radius: 12px; }
+
+    /* Smaller hero on mobile */
+    .pl-hero         { min-height: 126px; padding: 22px 20px 18px; }
+    .pl-hero h1      { font-size: 27px; }
+    .pl-hero p       { font-size: 12px; }
+
+    /* Workspace becomes stacked: map fills full area, sidebar slides up */
+    .pl-workspace {
+        position: relative;
+        display: block;
+        height: max(620px, var(--pl-height, 700px));
+        min-height: 620px;
+        margin: 0 7px 7px;
+        border-radius: 17px;
+    }
+
+    /* Map fills entire workspace */
+    .pl-map-wrap { width: 100%; height: 100%; }
+
+    /* Sidebar becomes a floating bottom sheet (slide-up drawer) */
+    .pl-sidebar {
+        position: absolute;
+        z-index: 900;
+        right: 7px;
+        bottom: 7px;
+        left: 7px;
+        max-height: min(72%, 560px);
+        border: 0;
+        border-radius: 18px;
+        box-shadow: 0 22px 55px rgba(16, 24, 40, 0.25);
+        transform: translateY(calc(100% + 20px)); /* hidden off-screen by default */
+        visibility: hidden;
+        transition: transform 240ms ease, visibility 240ms;
+    }
+    /* JS adds .is-mobile-open to show the sheet */
+    .pl-sidebar.is-mobile-open { transform: translateY(0); visibility: visible; }
+
+    /* Drag handle at top of mobile sheet */
+    .pl-mobile-handle {
+        display: block;
+        width: 34px;
+        height: 4px;
+        margin: 8px auto 0;
+        background: #d0d5dd;
+        border-radius: 9px;
+    }
+
+    /* Close button inside mobile sheet */
+    .pl-mobile-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        display: grid;
+        place-items: center;
+        padding: 0;
+        color: #667085;
+        background: #f2f4f7;
+        border: 0;
+        border-radius: 9px;
+        cursor: pointer;
+    }
+
+    /* Search wrap top margin tweak inside sheet */
+    .pl-search-wrap { margin-top: 10px; }
+
+    /* Limit scroll area inside sheet */
+    .pl-results { max-height: 330px; }
+
+    /* Hide sidebar footer (data source) on mobile */
+    .pl-sidebar__footer { display: none; }
+
+    /* Floating "Show Results" button — centred over map (shown only on mobile).
+       position:absolute + z-index required — .pl-map-wrap is already position:relative */
+    .pl-mobile-results-button {
+        position: absolute;
+        z-index: 800;
+        bottom: 16px;
+        left: 50%;
+        height: 44px;
+        display: flex;
+        gap: 7px;
+        padding: 0 15px;
+        color: #fff;
+        background: var(--pl-brand);
+        border: 0;
+        border-radius: 12px;
+        font: inherit;
+        font-size: 11px;
+        font-weight: 850;
+        transform: translateX(-50%);
+    }
+
+    /* Reposition floating map overlays for mobile */
+    .pl-fit-button    { right: 13px; bottom: 70px; width: 44px; padding: 0; font-size: 0; }
+    .pl-fit-button svg { display: block; }
+    .pl-map-action    { right: 13px; bottom: 122px; }
+    .pl-location-status { top: 13px; left: 13px; }
+
+    /* Detail panel — full width strip at bottom on mobile */
+    .pl-detail { right: 9px; bottom: 70px; width: calc(100% - 18px); }
+    .pl-detail__actions { flex-wrap: wrap; }
+}
