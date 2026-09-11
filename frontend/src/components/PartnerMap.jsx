@@ -81,7 +81,11 @@ function toArray(value) {
 function normalizePartner(partner, index) {
   const latitude = Number(partner.latitude ?? partner.lat);
   const longitude = Number(partner.longitude ?? partner.lng ?? partner.lon);
-  const schemes = toArray(partner.schemes ?? partner.scheme);
+  // supported_schemes is the frozen /api/partners contract field (api-contract.md:174-189)
+  // also accept legacy aliases: schemes, scheme
+  const schemes = toArray(
+    partner.supported_schemes ?? partner.schemes ?? partner.scheme
+  );
   const services = toArray(partner.services);
 
   return {
@@ -103,7 +107,8 @@ function normalizePartner(partner, index) {
     hours: partner.hours || partner.office_hours || "",
     reason: partner.reason || partner.match_reason || "",
     verified: Boolean(partner.verified ?? partner.is_verified),
-    matchScore: Number(partner.matchScore ?? partner.match_score ?? 0),
+    // rank_score is the frozen contract ranking field (api-contract.md:188-189)
+    matchScore: Number(partner.rank_score ?? partner.matchScore ?? partner.match_score ?? 0),
     providedDistance: Number(partner.distance_km ?? partner.distance),
   };
 }
@@ -176,6 +181,20 @@ function ViewportController({ selectedPartner, visiblePartners, markerRefs, fitR
     map.fitBounds(bounds, { padding: [70, 70], maxZoom: 13, animate: true });
   }, [fitRequest, map, visiblePartners]);
 
+  return null;
+}
+
+// Recenter the map whenever the user's geolocation updates.
+// MapContainer ignores center prop changes after mount, so we use flyTo.
+function LocationRecenter({ location }) {
+  const map = useMap();
+  useEffect(() => {
+    if (!location || !Number.isFinite(location.latitude) || !Number.isFinite(location.longitude)) return;
+    map.flyTo([location.latitude, location.longitude], Math.max(map.getZoom(), 13), {
+      animate: true,
+      duration: 0.7,
+    });
+  }, [map, location]);
   return null;
 }
 
@@ -306,7 +325,8 @@ function DetailPanel({ partner, onClose, onViewDetails }) {
 
 /**
  * Drop-in map for discovering authorized scheme/channel partners.
- * See README.md for the supported partner fields and integration example.
+ * Partner data must conform to the frozen /api/partners contract (docs/api-contract.md).
+ * Key fields: id, name, latitude, longitude, supported_schemes, rank_score, verified, district.
  */
 export default function PartnerMap({
   partners = [],
@@ -505,6 +525,8 @@ export default function PartnerMap({
               markerRefs={markerRefs}
               fitRequest={fitRequest}
             />
+            {/* Recenter after geolocation — MapContainer ignores center prop after mount */}
+            <LocationRecenter location={location} />
             <LocationButton location={location} locationStatus={locationStatus} onLocate={requestLocation} />
 
             {validLocation && (
@@ -541,13 +563,14 @@ export default function PartnerMap({
             ))}
           </MapContainer>
 
-          <div className={`pl-location-status is-${locationStatus}`} role="status">
+          {/* glass-panel provides shared background/border/shadow/blur for all map overlays */}
+          <div className={`pl-location-status glass-panel is-${locationStatus}`} role="status">
             {locationStatus === "loading" ? <span className="pl-spinner" /> : <Icon name={location ? "location" : "info"} size={16} />}
             <span>{locationMessage}</span>
             {(locationStatus === "denied" || locationStatus === "error") && <button type="button" onClick={requestLocation}>Try again</button>}
           </div>
 
-          <button className="pl-fit-button" type="button" onClick={() => setFitRequest((value) => value + 1)} disabled={!visiblePartners.length}>
+          <button className="pl-fit-button glass-panel" type="button" onClick={() => setFitRequest((value) => value + 1)} disabled={!visiblePartners.length}>
             <Icon name="grid" size={16} /> Show all {visiblePartners.length || ""}
           </button>
 
@@ -559,6 +582,7 @@ export default function PartnerMap({
             partner={selectedPartner}
             onClose={() => setSelectedId(null)}
             onViewDetails={onViewDetails}
+            className="glass-panel"
           />
         </div>
       </div>

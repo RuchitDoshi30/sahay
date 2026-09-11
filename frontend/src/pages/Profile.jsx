@@ -44,8 +44,8 @@ function Profile() {
             return
         }
 
-        console.log('Profile data:', formData)
-
+        // Persist form data to sessionStorage so Result/Partners pages can read it
+        sessionStorage.setItem('sahay_profile', JSON.stringify(formData))
         navigate('/result')
     }
 
@@ -163,6 +163,7 @@ function Profile() {
                                                 ? 'selected'
                                                 : ''
                                             }`}
+                                        aria-pressed={formData.has_sc_certificate === 'true'}
                                         onClick={() =>
                                             handleChange(
                                                 'has_sc_certificate',
@@ -185,6 +186,7 @@ function Profile() {
                                                 ? 'selected'
                                                 : ''
                                             }`}
+                                        aria-pressed={formData.has_sc_certificate === 'false'}
                                         onClick={() =>
                                             handleChange(
                                                 'has_sc_certificate',
@@ -277,6 +279,7 @@ function Profile() {
                                                 ? 'selected'
                                                 : ''
                                             }`}
+                                        aria-pressed={formData.purpose === 'business'}
                                         onClick={() =>
                                             handleChange(
                                                 'purpose',
@@ -304,6 +307,7 @@ function Profile() {
                                                 ? 'selected'
                                                 : ''
                                             }`}
+                                        aria-pressed={formData.purpose === 'education'}
                                         onClick={() =>
                                             handleChange(
                                                 'purpose',
