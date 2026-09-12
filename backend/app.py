@@ -12,9 +12,10 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://sahaysetu.vercel.app",
-        "https://sahaysetu.pages.dev",
+        "https://sahaysetup.pages.dev",
         "http://localhost:5173",
     ],
+    allow_origin_regex=r"https://.*\.sahaysetu\.pages\.dev",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
