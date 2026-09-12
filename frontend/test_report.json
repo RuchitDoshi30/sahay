@@ -1,0 +1,138 @@
+{
+  "timestamp": "2026-09-12T10:06:30.891Z",
+  "summary": {
+    "passed": 18,
+    "failed": 3,
+    "info": 0,
+    "total": 21
+  },
+  "results": [
+    {
+      "test": "Profile",
+      "step": "Home page loads",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Profile",
+      "step": "Navigate to Profile page",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Profile",
+      "step": "Select SC Certificate: Yes",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Profile",
+      "step": "Select Income range",
+      "status": "FAIL",
+      "detail": "locator.waitFor: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button.choice-button').nth(2) to be visible\u001b[22m\n"
+    },
+    {
+      "test": "Profile",
+      "step": "Select purpose",
+      "status": "FAIL",
+      "detail": "locator.waitFor: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button.choice-button').filter({ hasText: /business/i }).first() to be visible\u001b[22m\n"
+    },
+    {
+      "test": "Profile",
+      "step": "Fill project cost: 100000",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Profile",
+      "step": "Select activity type: \"Dairy\"",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Profile",
+      "step": "Fill state: Gujarat",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Profile",
+      "step": "Fill district: Rajkot",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Profile",
+      "step": "Submit form: Find My Scheme",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Profile",
+      "step": "sessionStorage sahay_profile",
+      "status": "FAIL",
+      "detail": "Key is null or missing"
+    },
+    {
+      "test": "Result",
+      "step": "Navigate to /result",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Result",
+      "step": "Filter chips: overflow-x scrollable",
+      "status": "PASS",
+      "detail": "overflow-x=\"auto\""
+    },
+    {
+      "test": "Result",
+      "step": "Filter buttons stay on one row (4 buttons)",
+      "status": "PASS",
+      "detail": "first.y=535, last.y=535"
+    },
+    {
+      "test": "Result",
+      "step": "Cards list: overflow-y scrollable (inline style)",
+      "status": "PASS",
+      "detail": "overflow-y=\"auto\""
+    },
+    {
+      "test": "Partners",
+      "step": "Navigate to /partners",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Partners",
+      "step": "Leaflet tiles loaded (16 tiles)",
+      "status": "PASS",
+      "detail": "16 .leaflet-tile-loaded elements"
+    },
+    {
+      "test": "Partners",
+      "step": "Click first partner card",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Partners",
+      "step": ".pl-detail overlay appears",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Partners",
+      "step": "Action buttons in overlay (2 found)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Partners",
+      "step": "Action buttons fully visible (not clipped)",
+      "status": "PASS",
+      "detail": "btn bottom=1062, overlay bottom=1077"
+    }
+  ],
+  "screenshotsDir": "D:\\sih 2026\\sahay\\frontend\\screenshots"
+}

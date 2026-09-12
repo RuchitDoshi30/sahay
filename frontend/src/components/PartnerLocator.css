@@ -1,0 +1,8 @@
+/* 
+ * PartnerLocator.css
+ * Note: pl-* styles for PartnerMap are distributed across the global style files:
+ * - src/styles/global.css → design tokens, .glass-panel, @keyframes
+ * - src/styles/layout.css → .pl-root, .pl-workspace, .pl-sidebar, .pl-map-wrap, .pl-detail
+ * - src/styles/components.css → .pl-card, .pl-marker, .pl-filters, .pl-button
+ * - src/styles/responsive.css → @media breakpoints (max-width: 900px / 720px)
+ */
