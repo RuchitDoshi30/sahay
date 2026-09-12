@@ -19,9 +19,12 @@ router = APIRouter()
 SCHEME_ID_TO_SEARCH_TERM = {
     "term_loan": "term loan",
     "micro_finance": "microfinance",
+    "mahila_samridhi": "microfinance",
     "aajeevika_microfinance": "microfinance",
+    "green_business": "green",
     "udyam_nidhi": "msme",
     "educational_loan": "education",
+    "vocational_education": "education",
 }
 
 
@@ -32,6 +35,7 @@ def get_partners(
     scheme_id: str,
     lat: Optional[float] = None,
     lon: Optional[float] = None,
+    require_eligible_funds: bool = True,
 ):
     scheme = get_scheme(scheme_id)
     if scheme is None:
@@ -45,6 +49,7 @@ def get_partners(
         scheme=search_term,
         latitude=lat,
         longitude=lon,
+        require_eligible_funds=require_eligible_funds,
     )
 
     return PartnersResponse(

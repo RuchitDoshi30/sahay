@@ -1,5 +1,27 @@
 [
   {
+    "ID": "GJ-RJK-001",
+    "Name": "Gujarat Scheduled Castes Development Corporation (GSCDC)",
+    "Type": "SCA",
+    "State": "Gujarat",
+    "District": "Rajkot",
+    "Address": "District Panchayat Compound, Near Collector Office, Rajkot, Gujarat 360001",
+    "Scheme": "Term Loan, Micro Finance & Udyam Nidhi",
+    "Service Area": "Rajkot & Saurashtra Region",
+    "Latitude": 22.3039,
+    "Longitude": 70.8022,
+    "Phone": "0281-2471092",
+    "Email": "gscdc.rajkot@gujarat.gov.in",
+    "Hours": "Mon - Fri: 10:30 AM - 05:30 PM (2nd & 4th Sat closed)",
+    "Source": "NSFDC Annual Report 2023-24",
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.1,
+    "fund_utilization_pct": 88.5,
+    "rank_score": 98
+  },
+  {
     "ID": "P001",
     "Name": "State Bank of India",
     "Type": "Bank",
@@ -11,7 +33,12 @@
     "Latitude": 23.0258,
     "Longitude": 72.5873,
     "Source": "SLBC Gujarat / SBI",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 1.6,
+    "fund_utilization_pct": 73.0,
+    "rank_score": 86
   },
   {
     "ID": "P002",
@@ -25,7 +52,12 @@
     "Latitude": 22.3008,
     "Longitude": 73.2043,
     "Source": "SLBC Gujarat / BOB",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 1.7,
+    "fund_utilization_pct": 74.0,
+    "rank_score": 87
   },
   {
     "ID": "P003",
@@ -39,7 +71,12 @@
     "Latitude": 21.1895,
     "Longitude": 72.8311,
     "Source": "SLBC Gujarat / PNB",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 1.8,
+    "fund_utilization_pct": 75.0,
+    "rank_score": 88
   },
   {
     "ID": "P004",
@@ -53,7 +90,12 @@
     "Latitude": 22.2969,
     "Longitude": 70.8007,
     "Source": "SLBC Gujarat / Canara",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 1.9,
+    "fund_utilization_pct": 76.0,
+    "rank_score": 89
   },
   {
     "ID": "P005",
@@ -67,7 +109,12 @@
     "Latitude": 21.7645,
     "Longitude": 72.1519,
     "Source": "SLBC Gujarat / UBI",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.0,
+    "fund_utilization_pct": 77.0,
+    "rank_score": 90
   },
   {
     "ID": "P006",
@@ -81,7 +128,12 @@
     "Latitude": 23.0373,
     "Longitude": 72.5613,
     "Source": "SLBC Gujarat / HDFC",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.1,
+    "fund_utilization_pct": 78.0,
+    "rank_score": 91
   },
   {
     "ID": "P007",
@@ -95,7 +147,12 @@
     "Latitude": 23.2156,
     "Longitude": 72.6369,
     "Source": "SLBC Gujarat / ICICI",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.2,
+    "fund_utilization_pct": 79.0,
+    "rank_score": 92
   },
   {
     "ID": "P008",
@@ -109,7 +166,12 @@
     "Latitude": 22.4707,
     "Longitude": 70.0577,
     "Source": "SLBC Gujarat / Axis",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.3,
+    "fund_utilization_pct": 80.0,
+    "rank_score": 93
   },
   {
     "ID": "P009",
@@ -123,7 +185,12 @@
     "Latitude": 22.2923,
     "Longitude": 70.7932,
     "Source": "SLBC Gujarat / Kotak",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.4,
+    "fund_utilization_pct": 81.0,
+    "rank_score": 94
   },
   {
     "ID": "P010",
@@ -137,7 +204,12 @@
     "Latitude": 21.1702,
     "Longitude": 72.7956,
     "Source": "SLBC Gujarat / IndusInd",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.5,
+    "fund_utilization_pct": 82.0,
+    "rank_score": 95
   },
   {
     "ID": "P011",
@@ -151,7 +223,12 @@
     "Latitude": 21.5222,
     "Longitude": 70.4579,
     "Source": "SLBC Gujarat / BOI",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.6,
+    "fund_utilization_pct": 83.0,
+    "rank_score": 85
   },
   {
     "ID": "P012",
@@ -165,7 +242,12 @@
     "Latitude": 23.242,
     "Longitude": 69.6669,
     "Source": "SLBC Gujarat / IOB",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.7,
+    "fund_utilization_pct": 84.0,
+    "rank_score": 86
   },
   {
     "ID": "P013",
@@ -179,7 +261,12 @@
     "Latitude": 23.588,
     "Longitude": 72.3693,
     "Source": "SLBC Gujarat / CBI",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.8,
+    "fund_utilization_pct": 85.0,
+    "rank_score": 87
   },
   {
     "ID": "P014",
@@ -193,7 +280,12 @@
     "Latitude": 22.5645,
     "Longitude": 72.9289,
     "Source": "SLBC Gujarat / UCO",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.9,
+    "fund_utilization_pct": 86.0,
+    "rank_score": 88
   },
   {
     "ID": "P015",
@@ -207,7 +299,12 @@
     "Latitude": 21.7051,
     "Longitude": 72.9959,
     "Source": "SLBC Gujarat / BOM",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.0,
+    "fund_utilization_pct": 87.0,
+    "rank_score": 89
   },
   {
     "ID": "P016",
@@ -221,7 +318,12 @@
     "Latitude": 20.9467,
     "Longitude": 72.9282,
     "Source": "SLBC Gujarat / IndianBank",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.1,
+    "fund_utilization_pct": 88.0,
+    "rank_score": 90
   },
   {
     "ID": "P017",
@@ -235,7 +337,12 @@
     "Latitude": 22.812,
     "Longitude": 70.8377,
     "Source": "SLBC Gujarat / Federal",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.2,
+    "fund_utilization_pct": 89.0,
+    "rank_score": 91
   },
   {
     "ID": "P018",
@@ -249,7 +356,12 @@
     "Latitude": 22.7284,
     "Longitude": 71.6375,
     "Source": "SLBC Gujarat / IDBI",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": false,
+    "no_overdues": false,
+    "npa_percentage": 8.4,
+    "fund_utilization_pct": 48.0,
+    "rank_score": 35
   },
   {
     "ID": "P019",
@@ -263,7 +375,12 @@
     "Latitude": 21.6417,
     "Longitude": 69.6293,
     "Source": "SLBC Gujarat / YesBank",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.4,
+    "fund_utilization_pct": 91.0,
+    "rank_score": 93
   },
   {
     "ID": "P020",
@@ -277,7 +394,12 @@
     "Latitude": 22.8377,
     "Longitude": 74.2546,
     "Source": "SLBC Gujarat / Bandhan",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.5,
+    "fund_utilization_pct": 92.0,
+    "rank_score": 94
   },
   {
     "ID": "P021",
@@ -291,7 +413,12 @@
     "Latitude": 21.6032,
     "Longitude": 71.2221,
     "Source": "SLBC Gujarat / SGB",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.6,
+    "fund_utilization_pct": 93.0,
+    "rank_score": 95
   },
   {
     "ID": "P022",
@@ -305,7 +432,12 @@
     "Latitude": 21.7099,
     "Longitude": 72.988,
     "Source": "SLBC Gujarat / BGGB",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.7,
+    "fund_utilization_pct": 72.0,
+    "rank_score": 85
   },
   {
     "ID": "P023",
@@ -319,7 +451,12 @@
     "Latitude": 23.041,
     "Longitude": 72.5692,
     "Source": "SLBC Gujarat / GSCB",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.8,
+    "fund_utilization_pct": 73.0,
+    "rank_score": 86
   },
   {
     "ID": "P024",
@@ -333,7 +470,12 @@
     "Latitude": 21.1764,
     "Longitude": 72.8051,
     "Source": "SLBC Gujarat / RBL",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.9,
+    "fund_utilization_pct": 74.0,
+    "rank_score": 87
   },
   {
     "ID": "P025",
@@ -347,7 +489,12 @@
     "Latitude": 22.3106,
     "Longitude": 73.1704,
     "Source": "SLBC Gujarat / IDFC",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 1.5,
+    "fund_utilization_pct": 75.0,
+    "rank_score": 88
   },
   {
     "ID": "P026",
@@ -361,7 +508,12 @@
     "Latitude": 22.3012,
     "Longitude": 70.8021,
     "Source": "SLBC Gujarat / MMFSL",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 1.6,
+    "fund_utilization_pct": 76.0,
+    "rank_score": 89
   },
   {
     "ID": "P027",
@@ -375,7 +527,12 @@
     "Latitude": 21.161,
     "Longitude": 72.842,
     "Source": "SLBC Gujarat / Shriram",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 1.7,
+    "fund_utilization_pct": 77.0,
+    "rank_score": 90
   },
   {
     "ID": "P028",
@@ -389,7 +546,12 @@
     "Latitude": 23.0525,
     "Longitude": 72.5122,
     "Source": "SLBC Gujarat / Bajaj",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 1.8,
+    "fund_utilization_pct": 78.0,
+    "rank_score": 91
   },
   {
     "ID": "P029",
@@ -403,7 +565,12 @@
     "Latitude": 23.6015,
     "Longitude": 72.3789,
     "Source": "SLBC Gujarat / Chola",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 1.9,
+    "fund_utilization_pct": 79.0,
+    "rank_score": 92
   },
   {
     "ID": "P030",
@@ -417,7 +584,12 @@
     "Latitude": 22.3129,
     "Longitude": 73.1678,
     "Source": "SLBC Gujarat / TataCap",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.0,
+    "fund_utilization_pct": 80.0,
+    "rank_score": 93
   },
   {
     "ID": "P031",
@@ -431,7 +603,12 @@
     "Latitude": 22.839,
     "Longitude": 74.258,
     "Source": "SLBC Gujarat / Muthoot",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.1,
+    "fund_utilization_pct": 81.0,
+    "rank_score": 94
   },
   {
     "ID": "P032",
@@ -445,7 +622,12 @@
     "Latitude": 22.7766,
     "Longitude": 73.6149,
     "Source": "SLBC Gujarat / CAGL",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.2,
+    "fund_utilization_pct": 82.0,
+    "rank_score": 95
   },
   {
     "ID": "P033",
@@ -459,7 +641,12 @@
     "Latitude": 23.4632,
     "Longitude": 73.3001,
     "Source": "SLBC Gujarat / Fusion",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": false,
+    "npa_percentage": 7.9,
+    "fund_utilization_pct": 61.0,
+    "rank_score": 40
   },
   {
     "ID": "P034",
@@ -473,7 +660,12 @@
     "Latitude": 24.1724,
     "Longitude": 72.4346,
     "Source": "SLBC Gujarat / Asirvad",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.4,
+    "fund_utilization_pct": 84.0,
+    "rank_score": 86
   },
   {
     "ID": "P035",
@@ -487,7 +679,12 @@
     "Latitude": 22.3108,
     "Longitude": 74.0112,
     "Source": "SLBC Gujarat / Arohan",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.5,
+    "fund_utilization_pct": 85.0,
+    "rank_score": 87
   },
   {
     "ID": "P036",
@@ -501,7 +698,12 @@
     "Latitude": 20.892,
     "Longitude": 70.4011,
     "Source": "SLBC Gujarat / Spandana",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.6,
+    "fund_utilization_pct": 86.0,
+    "rank_score": 88
   },
   {
     "ID": "P037",
@@ -515,7 +717,12 @@
     "Latitude": 22.6916,
     "Longitude": 72.8634,
     "Source": "SLBC Gujarat / Satin",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.7,
+    "fund_utilization_pct": 87.0,
+    "rank_score": 89
   },
   {
     "ID": "P038",
@@ -529,7 +736,12 @@
     "Latitude": 21.8703,
     "Longitude": 73.5026,
     "Source": "SLBC Gujarat / Annapurna",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.8,
+    "fund_utilization_pct": 88.0,
+    "rank_score": 90
   },
   {
     "ID": "P039",
@@ -543,7 +755,12 @@
     "Latitude": 22.1704,
     "Longitude": 71.666,
     "Source": "SLBC Gujarat / SVCL",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 2.9,
+    "fund_utilization_pct": 89.0,
+    "rank_score": 91
   },
   {
     "ID": "P040",
@@ -557,7 +774,12 @@
     "Latitude": 22.7001,
     "Longitude": 71.674,
     "Source": "SLBC Gujarat / Fincare",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.0,
+    "fund_utilization_pct": 90.0,
+    "rank_score": 92
   },
   {
     "ID": "P041",
@@ -566,12 +788,17 @@
     "State": "Gujarat",
     "District": "Rajkot",
     "Address": "Kalawad Road, Rajkot, Gujarat 360005",
-    "Scheme": "Small Business High-Value Loan",
+    "Scheme": "Term Loan & Small Business Credit",
     "Service Area": "Saurashtra Region",
     "Latitude": 22.2855,
     "Longitude": 70.7725,
     "Source": "SLBC Gujarat / AUBank",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": false,
+    "no_overdues": true,
+    "npa_percentage": 3.2,
+    "fund_utilization_pct": 100.0,
+    "rank_score": 50
   },
   {
     "ID": "P042",
@@ -585,7 +812,12 @@
     "Latitude": 22.9982,
     "Longitude": 72.6026,
     "Source": "SLBC Gujarat / Equitas",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.2,
+    "fund_utilization_pct": 92.0,
+    "rank_score": 94
   },
   {
     "ID": "P043",
@@ -599,7 +831,12 @@
     "Latitude": 21.2266,
     "Longitude": 72.8312,
     "Source": "SLBC Gujarat / Ujjivan",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.3,
+    "fund_utilization_pct": 93.0,
+    "rank_score": 95
   },
   {
     "ID": "P044",
@@ -613,7 +850,12 @@
     "Latitude": 22.3245,
     "Longitude": 73.2012,
     "Source": "SLBC Gujarat / Jana",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.4,
+    "fund_utilization_pct": 72.0,
+    "rank_score": 85
   },
   {
     "ID": "P045",
@@ -627,7 +869,12 @@
     "Latitude": 21.7701,
     "Longitude": 72.145,
     "Source": "SLBC Gujarat / Utkarsh",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.5,
+    "fund_utilization_pct": 73.0,
+    "rank_score": 86
   },
   {
     "ID": "P046",
@@ -641,7 +888,12 @@
     "Latitude": 23.1901,
     "Longitude": 72.6289,
     "Source": "SLBC Gujarat / Suryoday",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.6,
+    "fund_utilization_pct": 74.0,
+    "rank_score": 87
   },
   {
     "ID": "P047",
@@ -655,7 +907,12 @@
     "Latitude": 20.951,
     "Longitude": 72.932,
     "Source": "SLBC Gujarat / ESAF",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.7,
+    "fund_utilization_pct": 75.0,
+    "rank_score": 88
   },
   {
     "ID": "P048",
@@ -669,7 +926,12 @@
     "Latitude": 22.5521,
     "Longitude": 72.9234,
     "Source": "SLBC Gujarat / CSFB",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.8,
+    "fund_utilization_pct": 76.0,
+    "rank_score": 89
   },
   {
     "ID": "P049",
@@ -683,7 +945,12 @@
     "Latitude": 22.821,
     "Longitude": 70.831,
     "Source": "SLBC Gujarat / Shivalik",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 3.9,
+    "fund_utilization_pct": 77.0,
+    "rank_score": 90
   },
   {
     "ID": "P050",
@@ -697,6 +964,11 @@
     "Latitude": 20.7554,
     "Longitude": 73.6872,
     "Source": "SLBC Gujarat / NESFB",
-    "Prototype Status": "Prototype"
+    "Prototype Status": "Prototype",
+    "fund_available": true,
+    "no_overdues": true,
+    "npa_percentage": 1.5,
+    "fund_utilization_pct": 78.0,
+    "rank_score": 91
   }
 ]

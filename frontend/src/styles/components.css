@@ -96,6 +96,16 @@
     max-width: 500px;
 }
 
+.choice-grid.choice-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+    .choice-grid.choice-grid-3 {
+        grid-template-columns: 1fr !important;
+    }
+}
+
 .choice-button,
 .purpose-card {
     border: 1px solid var(--line);
@@ -1017,3 +1027,47 @@
 .pl-button--primary:hover { background: var(--pl-brand-dark); }
 .pl-button--secondary { color: #344054; background: #fff; border-color: #d0d5dd; }
 .pl-button--ghost    { margin-left: auto; color: var(--pl-brand-dark); background: transparent; }
+
+/* ─── Seamless Google Dynamic Translation UI Overrides ──────────────────────── */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame,
+body > .skiptranslate,
+body > iframe.skiptranslate,
+body > iframe[src*="translate.google"],
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-ZVi9od-aZ2wEe-OiiCO,
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+#goog-gt-tt,
+.goog-tooltip,
+.goog-te-balloon-frame {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    max-height: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+}
+
+body {
+    top: 0px !important;
+    position: static !important;
+}
+
+.goog-text-highlight {
+    background: none !important;
+    box-shadow: none !important;
+}
+
+#google_translate_element {
+    display: none !important;
+}
+
+/* Ensure currency, brand, and numbers are not altered */
+.notranslate {
+    translate: no !important;
+}

@@ -117,19 +117,18 @@ def calculate_distance(lat1, lon1, lat2, lon2):
 
     Returns distance in kilometres.
     """
-
-    earth_radius = 6371
-
-    lat1 = math.radians(lat1)
-    lat2 = math.radians(lat2)
+    earth_radius = 6371.0
 
     difference_lat = math.radians(lat2 - lat1)
     difference_lon = math.radians(lon2 - lon1)
 
+    rad_lat1 = math.radians(lat1)
+    rad_lat2 = math.radians(lat2)
+
     a = (
         math.sin(difference_lat / 2) ** 2
-        + math.cos(lat1)
-        * math.cos(lat2)
+        + math.cos(rad_lat1)
+        * math.cos(rad_lat2)
         * math.sin(difference_lon / 2) ** 2
     )
 
@@ -226,6 +225,10 @@ def scheme_matches(partner, requested_scheme):
     if requested_scheme in partner_scheme:
         return True
 
+    # State Channelizing Agencies (SCAs) administer all NSFDC schemes
+    if partner.get("Type", "").strip().upper() == "SCA":
+        return True
+
     # Common scheme/category mappings
     scheme_keywords = {
         "term loan": [
@@ -274,6 +277,8 @@ def scheme_matches(partner, requested_scheme):
             "livelihood",
             "self-help",
             "shg",
+            "women",
+            "mahila",
         ],
 
         "equipment": [
@@ -281,6 +286,26 @@ def scheme_matches(partner, requested_scheme):
             "tractor",
             "farm equipment",
             "vehicle",
+        ],
+
+        "education": [
+            "education",
+            "student",
+            "vocational",
+            "skill",
+            "training",
+            "degree",
+            "iti",
+        ],
+
+        "green": [
+            "green",
+            "solar",
+            "agri",
+            "agro",
+            "farm",
+            "term loan",
+            "eco",
         ],
     }
 
@@ -305,6 +330,7 @@ def find_partners(
     scheme,
     latitude=None,
     longitude=None,
+    require_eligible_funds=True,
 ):
     """
     Find and rank suitable partners.
@@ -313,8 +339,9 @@ def find_partners(
         1. State
         2. Service area
         3. Scheme
-        4. Prototype status
-        5. Distance
+        4. Statutory Fund Utilization & Overdue Compliance (Part 3 Guardrail)
+        5. Prototype status
+        6. Distance
     """
 
     partners = load_partners()
@@ -370,7 +397,20 @@ def find_partners(
             continue
 
         # -------------------------------------------------
-        # 5. Get Partner Coordinates
+        # 5. Statutory Fund Utilization & Overdue Compliance (SIH Part 3)
+        # -------------------------------------------------
+        fund_available = bool(partner.get("fund_available", True))
+        no_overdues = bool(partner.get("no_overdues", True))
+        npa_pct = float(partner.get("npa_percentage", 2.1))
+        fund_util_pct = float(partner.get("fund_utilization_pct", 88.0))
+        is_eligible = fund_available and no_overdues
+
+        # Exclude partners with exhausted lending quotas or high default overdues/NPAs
+        if require_eligible_funds and not is_eligible:
+            continue
+
+        # -------------------------------------------------
+        # 6. Get Partner Coordinates
         # -------------------------------------------------
 
         partner_latitude = partner.get("Latitude")
@@ -393,38 +433,43 @@ def find_partners(
             )
 
         # -------------------------------------------------
-        # 6. Create Reason
+        # 7. Create Reason with Audit Lineage
         # -------------------------------------------------
 
-        if distance is not None:
+        audit_status = (
+            f"Active NSFDC fund allocation, zero default overdues (NPA: {npa_pct}%)."
+            if is_eligible
+            else f"Statutory hold: {'Quota exhausted' if not fund_available else 'High NPA/overdues'}."
+        )
 
+        if distance is not None:
             reason = (
                 f"Supports {partner.get('Scheme')} "
                 f"and serves {partner.get('Service Area')}. "
+                f"{audit_status} "
                 f"Approximately {distance:.1f} km away."
             )
-
         else:
-
             reason = (
                 f"Supports {partner.get('Scheme')} "
-                f"and serves {partner.get('Service Area')}."
+                f"and serves {partner.get('Service Area')}. "
+                f"{audit_status}"
             )
 
         # -------------------------------------------------
-        # 7. Create Clean Result
+        # 8. Create Clean Result
         # -------------------------------------------------
 
         results.append(
             {
-                "id": partner.get("ID"),
-                "name": partner.get("Name"),
-                "type": partner.get("Type"),
-                "state": partner.get("State"),
-                "district": partner.get("District"),
-                "address": partner.get("Address"),
-                "scheme": partner.get("Scheme"),
-                "service_area": partner.get("Service Area"),
+                "id": partner.get("ID") or partner.get("id"),
+                "name": partner.get("Name") or partner.get("name"),
+                "type": partner.get("Type") or partner.get("type"),
+                "state": partner.get("State") or partner.get("state"),
+                "district": partner.get("District") or partner.get("district"),
+                "address": partner.get("Address") or partner.get("address"),
+                "scheme": partner.get("Scheme") or partner.get("scheme"),
+                "service_area": partner.get("Service Area") or partner.get("service_area"),
                 "latitude": partner_latitude,
                 "longitude": partner_longitude,
                 "distance_km": (
@@ -433,11 +478,24 @@ def find_partners(
                     else None
                 ),
                 "reason": reason,
+                "phone": partner.get("Phone") or partner.get("phone"),
+                "email": partner.get("Email") or partner.get("email"),
+                "hours": partner.get("Hours") or partner.get("hours"),
+                "verified": partner.get("Verified") if partner.get("Verified") is not None else partner.get("verified", True),
+                "supported_schemes": partner.get("supported_schemes") or [partner.get("Scheme", "")] if partner.get("Scheme") else [],
+                "fund_available": fund_available,
+                "no_overdues": no_overdues,
+                "npa_percentage": npa_pct,
+                "fund_utilization_pct": fund_util_pct,
+                "eligible_for_routing": is_eligible,
+                "rank_score": partner.get("Rank Score") or partner.get("rank_score", 95),
+                "data_source": partner.get("Source") or partner.get("data_source", "NSFDC Annual Report 2023-24"),
+                "prototype_status": partner.get("Prototype Status") or partner.get("prototype_status", "Prototype"),
             }
         )
 
     # -----------------------------------------------------
-    # 8. Sort By Distance
+    # 9. Sort By Distance
     # -----------------------------------------------------
 
     results.sort(

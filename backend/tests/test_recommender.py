@@ -284,3 +284,67 @@ def test_each_rejected_scheme_has_required_fields():
         assert "scheme_name" in r
         assert "rejection_reason" in r
         assert len(r["rejection_reason"]) > 0
+
+
+# ─── K. New Scheme Coverage (Mahila Samridhi, Green Business, Vocational) ─────
+
+def test_female_small_project_recommends_mahila_samridhi():
+    # Female SC applicant with cost <= 140,000 gets Mahila Samridhi (5% p.a.)
+    res = recommend(profile(project_cost=100_000, gender="female"))
+    assert res["eligible"] is True
+    assert res["recommended_scheme"]["id"] == "mahila_samridhi"
+    assert res["recommended_scheme"]["interest_rate"] == 5.0
+    assert res["alternative_scheme"]["id"] == "micro_finance"
+
+
+def test_male_small_project_gives_micro_finance_not_mahila():
+    # Male SC applicant with cost <= 140,000 gets Micro Finance (6.5% p.a.), alt is aajeevika
+    res = recommend(profile(project_cost=100_000, gender="male"))
+    assert res["eligible"] is True
+    assert res["recommended_scheme"]["id"] == "micro_finance"
+    assert res["recommended_scheme"]["interest_rate"] == 6.5
+    assert res["alternative_scheme"]["id"] == "aajeevika_microfinance"
+    # Mahila Samridhi should be in rejected schemes for non-female
+    rejected_ids = [r["scheme_id"] for r in res["rejected_schemes"]]
+    assert "mahila_samridhi" in rejected_ids
+
+
+def test_green_activity_large_project_recommends_green_business():
+    # Eco/green business with cost > 140,000 gets Green Business Scheme (6% p.a., 84 mo)
+    res = recommend(profile(project_cost=400_000, activity_type="solar panel installation"))
+    assert res["eligible"] is True
+    assert res["recommended_scheme"]["id"] == "green_business"
+    assert res["recommended_scheme"]["interest_rate"] == 6.0
+    assert res["recommended_scheme"]["tenure_months"] == 84
+
+
+def test_non_green_activity_large_project_gives_term_loan():
+    # General non-green business with cost > 140,000 gets Term Loan (8% p.a., 60 mo)
+    res = recommend(profile(project_cost=400_000, activity_type="grocery retail store"))
+    assert res["eligible"] is True
+    assert res["recommended_scheme"]["id"] == "term_loan"
+    assert res["recommended_scheme"]["interest_rate"] == 8.0
+
+
+def test_vocational_education_small_cost_recommends_vocational():
+    # Vocational / skill course with cost <= 500,000 gets Vocational Education Loan (6.5% p.a., 60 mo)
+    res = recommend(profile(
+        purpose="education",
+        activity_type="iti vocational training",
+        project_cost=300_000,
+    ))
+    assert res["eligible"] is True
+    assert res["recommended_scheme"]["id"] == "vocational_education"
+    assert res["alternative_scheme"]["id"] == "educational_loan"
+
+
+def test_large_education_cost_gives_educational_loan():
+    # Education cost > 500,000 gets Educational Loan even if vocational
+    res = recommend(profile(
+        purpose="education",
+        activity_type="iti vocational training",
+        project_cost=1_500_000,
+    ))
+    assert res["eligible"] is True
+    assert res["recommended_scheme"]["id"] == "educational_loan"
+

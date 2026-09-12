@@ -9,6 +9,43 @@
   </head>
   <body>
     <div id="root"></div>
+    <div id="google_translate_element" style="display:none"></div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,hi,gu,mr,ta,te,bn,pa',
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+
+      // Suppress Google Translate top banner bar and prevent page layout shift
+      (function() {
+        var suppressBanner = function() {
+          if (document.body && document.body.style.top && document.body.style.top !== '0px') {
+            document.body.style.top = '0px';
+          }
+          var banners = document.querySelectorAll('.goog-te-banner-frame, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf, body > .skiptranslate, iframe[class*="goog-te-banner"]');
+          for (var i = 0; i < banners.length; i++) {
+            banners[i].style.setProperty('display', 'none', 'important');
+            banners[i].style.setProperty('visibility', 'hidden', 'important');
+            banners[i].style.setProperty('height', '0px', 'important');
+          }
+        };
+
+        if (window.MutationObserver) {
+          var observer = new MutationObserver(suppressBanner);
+          observer.observe(document.documentElement, {
+            attributes: true,
+            childList: true,
+            subtree: true,
+            attributeFilter: ['style', 'class']
+          });
+        }
+        window.addEventListener('load', suppressBanner);
+      })();
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

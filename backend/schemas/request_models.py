@@ -55,3 +55,8 @@ class ProfileRequest(BaseModel):
         default=None,
         description="User's GPS longitude (optional). Used for distance-sorted partner results.",
     )
+
+    gender: Optional[str] = Field(
+        default=None,
+        description="Applicant gender ('female', 'male', 'other'). Used to target women-specific schemes like Mahila Samridhi Yojana.",
+    )

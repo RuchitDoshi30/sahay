@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PartnerMap from '../components/PartnerMap'
 import { SAMPLE_PARTNERS } from '../mock/samplePartners'
+import { getPartners } from '../services/api'
+import Navbar from '../components/Navbar'
+import AudioNarrator from '../components/AudioNarrator'
+import { useAccessibility } from '../context/AccessibilityContext'
 import '../styles/layout.css'
 import '../styles/components.css'
 import '../styles/responsive.css'
@@ -21,6 +25,8 @@ function Partners() {
     const [selectedScheme, setSelectedScheme] = useState(null)
     const [profileData, setProfileData] = useState(null)
     const [selectedPartner, setSelectedPartner] = useState(null)
+    const [partnersList, setPartnersList] = useState([])
+    const [loading, setLoading] = useState(true)
 
     // Trigger Leaflet Map Resize after mount so tiles load automatically
     useEffect(() => {
@@ -31,10 +37,14 @@ function Partners() {
     }, [])
 
     useEffect(() => {
+        let scheme = null
+        let profile = null
+
         const storedScheme = sessionStorage.getItem('sahay_selected_scheme')
         if (storedScheme) {
             try {
-                setSelectedScheme(JSON.parse(storedScheme))
+                scheme = JSON.parse(storedScheme)
+                setSelectedScheme(scheme)
             } catch (err) {
                 console.error('Failed to parse sahay_selected_scheme', err)
             }
@@ -43,11 +53,44 @@ function Partners() {
         const storedProfile = sessionStorage.getItem('sahay_profile')
         if (storedProfile) {
             try {
-                setProfileData(JSON.parse(storedProfile))
+                profile = JSON.parse(storedProfile)
+                setProfileData(profile)
             } catch (err) {
                 console.error('Failed to parse sahay_profile', err)
             }
         }
+
+        // Fetch live partners from backend
+        async function fetchLivePartners() {
+            setLoading(true)
+            const state = profile?.state || 'Gujarat'
+            const district = sanitizeDistrict(profile?.district)
+            const scheme_id = scheme?.id || 'term_loan'
+            const lat = profile?.latitude || 22.3039
+            const lon = profile?.longitude || 70.8022
+
+            try {
+                const res = await getPartners({ state, district, scheme_id, lat, lon })
+                if (res && res.partners && res.partners.length > 0) {
+                    setPartnersList(res.partners)
+                    setSelectedPartner(res.partners[0])
+                    sessionStorage.setItem('sahay_selected_partner', JSON.stringify(res.partners[0]))
+                } else {
+                    setPartnersList(SAMPLE_PARTNERS)
+                    setSelectedPartner(SAMPLE_PARTNERS[0])
+                    sessionStorage.setItem('sahay_selected_partner', JSON.stringify(SAMPLE_PARTNERS[0]))
+                }
+            } catch (err) {
+                console.warn('Backend partners query failed, using offline partners data:', err)
+                setPartnersList(SAMPLE_PARTNERS)
+                setSelectedPartner(SAMPLE_PARTNERS[0])
+                sessionStorage.setItem('sahay_selected_partner', JSON.stringify(SAMPLE_PARTNERS[0]))
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchLivePartners()
     }, [])
 
     const handlePartnerSelect = (partner) => {
@@ -66,36 +109,21 @@ function Partners() {
         navigate('/result')
     }
 
+    const { t, tTerm, language, sahajMode } = useAccessibility() || {
+        t: (k) => k,
+        tTerm: (s, p) => s,
+        language: 'en',
+        sahajMode: true
+    }
+
+    const getAudioText = () => {
+        return `Find your nearest official State Channelising Agency and partner bank branch. GSCDC Rajkot is authorized to disburse concessional loans for your scheme. Never pay any fee or commission to middlemen — this government service is completely free.`
+    }
+
     return (
         <div className="profile-page">
             {/* ================= NAVBAR ================= */}
-            <nav className="site-navbar">
-                <div className="navbar-inner">
-                    <button
-                        className="profile-brand-button"
-                        onClick={() => navigate('/')}
-                        aria-label="Sahay Home"
-                    >
-                        <div className="site-brand">
-                            <div className="brand-logo">S</div>
-                            <div className="brand-text">
-                                <div className="brand-name">Sahay</div>
-                                <div className="brand-subtitle">
-                                    Scheme Guidance Platform
-                                </div>
-                            </div>
-                        </div>
-                    </button>
-
-                    <div className="navbar-links">
-                        <a href="/#how-it-works">How it works</a>
-                        <a href="/#why-sahay">Why Sahay?</a>
-                        <button className="language-selector">
-                            EN <span>⌄</span>
-                        </button>
-                    </div>
-                </div>
-            </nav>
+            <Navbar />
 
             {/* ================= MAIN WORKSPACE ================= */}
             <main style={{ maxWidth: '1420px', margin: '0 auto', padding: '30px 4% 60px' }}>
@@ -103,7 +131,7 @@ function Partners() {
                 <div
                     className="profile-form-card"
                     style={{
-                        marginBottom: '20px',
+                        marginBottom: '16px',
                         padding: '16px 24px',
                         display: 'flex',
                         alignItems: 'center',
@@ -115,17 +143,17 @@ function Partners() {
                 >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
                         <div className="progress-indicator" style={{ padding: '6px 10px' }}>
-                            <span>STEP 03</span> <strong>of 04</strong>
+                            <span>{t('step3of4')}</span>
                         </div>
                         <div style={{ fontSize: '13px', color: '#17231d', fontWeight: '600' }}>
                             {selectedScheme ? (
-                                <span>Active Scheme: <strong style={{ color: 'var(--green)' }}>{selectedScheme.name}</strong></span>
+                                <span>{t('activeScheme')}: <strong style={{ color: 'var(--green)' }}>{selectedScheme.name}</strong></span>
                             ) : (
-                                <span>Active Scheme: <strong>PM-AJAY (Default)</strong></span>
+                                <span>{t('activeScheme')}: <strong>Term Loan Scheme (NSFDC)</strong></span>
                             )}
                             {profileData && (
                                 <span style={{ marginLeft: '12px', color: '#68736d' }}>
-                                    • District: <strong>{sanitizeDistrict(profileData.district)}, {profileData.state || 'Gujarat'}</strong>
+                                    • {t('servicingDistrict')}: <strong>{sanitizeDistrict(profileData.district)}, {profileData.state || 'Gujarat'}</strong>
                                 </span>
                             )}
                         </div>
@@ -138,7 +166,7 @@ function Partners() {
                             style={{ padding: '7px 12px', fontSize: '12px' }}
                             onClick={handleBackToResults}
                         >
-                            Change Scheme
+                            {t('changeScheme')}
                         </button>
 
                         <button
@@ -147,9 +175,96 @@ function Partners() {
                             style={{ padding: '7px 14px', fontSize: '12px' }}
                             onClick={handleProceedToSummary}
                         >
-                            Proceed to Summary →
+                            {t('proceedToSummary')}
                         </button>
                     </div>
+                </div>
+
+                {/* Priority 5: Anti-Middleman Shield Banner */}
+                <div
+                    style={{
+                        marginBottom: '16px',
+                        padding: '14px 20px',
+                        borderRadius: '10px',
+                        background: 'linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%)',
+                        border: '1.5px solid #fecaca',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        flexWrap: 'wrap',
+                        gap: '14px',
+                        boxShadow: '0 4px 14px rgba(220, 38, 38, 0.06)'
+                    }}
+                >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                        <div style={{
+                            fontSize: '26px',
+                            background: '#ffffff',
+                            borderRadius: '50%',
+                            width: '46px',
+                            height: '46px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            boxShadow: '0 2px 8px rgba(220,38,38,0.15)',
+                            flexShrink: 0
+                        }}>
+                            🛡️
+                        </div>
+                        <div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                                <span style={{
+                                    fontSize: '11px',
+                                    fontWeight: '800',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '0.6px',
+                                    color: '#991b1b',
+                                    background: '#fee2e2',
+                                    padding: '2px 8px',
+                                    borderRadius: '4px'
+                                }}>
+                                    ⚠️ 100% FREE GOVERNMENT SERVICE
+                                </span>
+                                <strong style={{ fontSize: '13px', color: '#7f1d1d' }}>
+                                    Zero Middleman Exploitation Shield
+                                </strong>
+                            </div>
+                            <p style={{ margin: '4px 0 0', fontSize: '12px', color: '#991b1b', lineHeight: '1.4' }}>
+                                SC Beneficiaries: DO NOT pay any commission to brokers or agents. All forms and processing are 100% FREE.
+                            </p>
+                        </div>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <AudioNarrator text={getAudioText()} label={t('readAloud')} />
+                        <span style={{ fontSize: '11px', color: '#b91c1c', background: '#ffffff', padding: '4px 10px', borderRadius: '6px', border: '1px solid #fecaca', fontWeight: 600 }}>
+                            📞 Toll-Free: 1800-11-2001
+                        </span>
+                    </div>
+                </div>
+
+                {/* DL-007 Lineage & Prototype Transparency Banner */}
+                <div
+                    style={{
+                        marginBottom: '20px',
+                        padding: '10px 18px',
+                        borderRadius: '8px',
+                        background: '#eff8f3',
+                        border: '1px solid #c8e9d6',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        flexWrap: 'wrap',
+                        gap: '10px',
+                        fontSize: '12px',
+                        color: '#1a5c38'
+                    }}
+                >
+                    <div>
+                        <strong>Geospatial Channel Partner Network:</strong> Filtered by accredited State Channelising Agencies (SCAs) and servicing banks in your district.
+                    </div>
+                    <span style={{ fontSize: '11px', color: '#3d7d59', background: '#ffffff', padding: '3px 8px', borderRadius: '4px', border: '1px solid #c8e9d6' }}>
+                        Prototype Notice: Branch liquidity metrics are illustrative mocks awaiting live CBS/Jan Samarth API sync (DL-007)
+                    </span>
                 </div>
 
                 {/* Pre-built PartnerMap Widget inside Page Wrapper */}
@@ -172,7 +287,7 @@ function Partners() {
                             overflow: hidden !important;
                         }
 
-                        /* ── Left sidebar: fixed height + vertical scroll on card list ── */
+                        /* Left sidebar: fixed height + vertical scroll on card list */
                         .partner-map-page-wrapper .pl-sidebar {
                             display: flex !important;
                             flex-direction: column !important;
@@ -231,7 +346,7 @@ function Partners() {
                             background-color: #f2f4f7 !important;
                         }
 
-                        /* ── Popup detail card ── */
+                        /* Popup detail card */
                         .partner-map-page-wrapper .pl-detail {
                             position: absolute !important;
                             z-index: 1000 !important;
@@ -287,13 +402,13 @@ function Partners() {
                     `}</style>
 
                     <PartnerMap
-                        partners={SAMPLE_PARTNERS}
+                        partners={partnersList.length > 0 ? partnersList : SAMPLE_PARTNERS}
                         height="760px"
                         autoLocate={false}
                         defaultCenter={{ latitude: 22.3039, longitude: 70.8022 }}
                         defaultZoom={13}
-                        title="Find the right partner near you."
-                        subtitle="Your recommended scheme, verified offices, and the clearest next step—all in one place."
+                        title="Locate your nearest servicing Channel Partner."
+                        subtitle="Verified State Channelising Agencies (SCAs) and Bank Branches authorized for your scheme."
                         onPartnerSelect={handlePartnerSelect}
                         onViewDetails={(partner) => {
                             handlePartnerSelect(partner)
@@ -313,16 +428,22 @@ function Partners() {
                     >
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '15px' }}>
                             <div>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                                    <span className="secure-mark">✓ SELECTED PARTNER OFFICE</span>
-                                    {selectedPartner.verified && <span className="pl-verified">Authorized Partner</span>}
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px', flexWrap: 'wrap' }}>
+                                    <span className="secure-mark">{t('selectedPartnerBadge')}</span>
+                                    <span className="pl-verified">Authorized Agency</span>
+                                    {selectedPartner.fund_available !== false && selectedPartner.no_overdues !== false && (
+                                        <span style={{ fontSize: '11px', color: '#15803d', background: '#dcfce7', padding: '2px 8px', borderRadius: '4px', fontWeight: 700 }}>
+                                            🛡️ {sahajMode ? t('sahajSafeOffice') : t('activeLendingQuota')} • {selectedPartner.npa_percentage != null ? `${selectedPartner.npa_percentage}% NPA` : t('cleanRecoveryAudit')}
+                                        </span>
+                                    )}
                                 </div>
-                                <h3 style={{ margin: '2px 0', fontSize: '17px', fontFamily: 'Manrope, sans-serif' }}>
+                                <h3 style={{ margin: '2px 0', fontSize: '18px', fontFamily: 'Manrope, sans-serif' }}>
                                     {selectedPartner.name}
                                 </h3>
-                                <p style={{ color: '#68736d', fontSize: '12px', margin: 0 }}>
+                                <p style={{ color: '#48554d', fontSize: '13px', margin: '4px 0 0' }}>
                                     {selectedPartner.address || `${selectedPartner.district}, ${selectedPartner.state}`}
                                     {selectedPartner.phone && ` • Tel: ${selectedPartner.phone}`}
+                                    {selectedPartner.distance_km != null && ` • ${selectedPartner.distance_km} km away`}
                                 </p>
                             </div>
 
@@ -331,8 +452,7 @@ function Partners() {
                                 className="primary-btn profile-submit"
                                 onClick={handleProceedToSummary}
                             >
-                                Confirm Partner & View Summary
-                                <span className="arrow">→</span>
+                                {t('confirmPartnerAction')}
                             </button>
                         </div>
                     </div>
