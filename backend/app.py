@@ -10,15 +10,15 @@ app = FastAPI(title="Sahay - SIH26092")
 
 app.add_middleware(
     CORSMiddleware,
-   allow_origins=[
-    "https://sahaysetu.vercel.app",
-    "http://localhost:5173",
-],
+    allow_origins=[
+        "https://sahaysetu.vercel.app",
+        "https://sahaysetup.pages.dev",
+        "http://localhost:5173",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 app.include_router(recommend_router)
 app.include_router(calculate_router)
 app.include_router(partners_router)
