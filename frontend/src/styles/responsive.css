@@ -284,6 +284,6 @@
     .pl-location-status { top: 13px; left: 13px; }
 
     /* Detail panel — full width strip at bottom on mobile */
-    .pl-detail { right: 9px; bottom: 70px; width: calc(100% - 18px); }
+    .pl-detail { right: 9px; bottom: 70px; width: calc(100% - 18px); max-height: calc(100% - 80px); }
     .pl-detail__actions { flex-wrap: wrap; }
 }

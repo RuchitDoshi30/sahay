@@ -160,8 +160,8 @@ function Profile() {
                                     <button
                                         type="button"
                                         className={`choice-button ${formData.has_sc_certificate === 'true'
-                                                ? 'selected'
-                                                : ''
+                                            ? 'selected'
+                                            : ''
                                             }`}
                                         aria-pressed={formData.has_sc_certificate === 'true'}
                                         onClick={() =>
@@ -183,8 +183,8 @@ function Profile() {
                                     <button
                                         type="button"
                                         className={`choice-button ${formData.has_sc_certificate === 'false'
-                                                ? 'selected'
-                                                : ''
+                                            ? 'selected'
+                                            : ''
                                             }`}
                                         aria-pressed={formData.has_sc_certificate === 'false'}
                                         onClick={() =>
@@ -276,8 +276,8 @@ function Profile() {
                                     <button
                                         type="button"
                                         className={`purpose-card ${formData.purpose === 'business'
-                                                ? 'selected'
-                                                : ''
+                                            ? 'selected'
+                                            : ''
                                             }`}
                                         aria-pressed={formData.purpose === 'business'}
                                         onClick={() =>
@@ -304,8 +304,8 @@ function Profile() {
                                     <button
                                         type="button"
                                         className={`purpose-card ${formData.purpose === 'education'
-                                                ? 'selected'
-                                                : ''
+                                            ? 'selected'
+                                            : ''
                                             }`}
                                         aria-pressed={formData.purpose === 'education'}
                                         onClick={() =>
