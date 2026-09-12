@@ -2,12 +2,14 @@ from fastapi import FastAPI
 from routes.calculate import router as calculate_router
 from routes.partners import router as partners_router
 from routes.recommend import router as recommend_router
+from routes.result import router as result_router
 
 app = FastAPI(title="Sahay - SIH26092")
 
 app.include_router(recommend_router)
 app.include_router(calculate_router)
 app.include_router(partners_router)
+app.include_router(result_router)
 
 
 @app.get("/api/health")
