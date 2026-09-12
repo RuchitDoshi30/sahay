@@ -169,3 +169,30 @@ Prototype 1 operates entirely with local JSON files (`schemes.json`, `partners.j
 
 ### Rationale:
 Ensures zero external operational dependencies, zero database credential configuration, lightning-fast boot times, and 100% reproducible test runs in local and offline hackathon presentation environments.
+
+---
+
+## DL-000 — Temporary `POST /api/result` Combined Endpoint (Jeet, Pair 1)
+
+**Date:** 2026-09  
+**Decision Maker:** Jeet (Pair 1)  
+**Status:** TEMPORARY
+
+**What**: A temporary combined endpoint that calls `calculate_loan()` +
+`find_partners()` together and returns one response, using a hardcoded
+placeholder rule to pick a scheme instead of the real recommender.
+
+**Why**: `docs/api-contract.md` only defines `/api/recommend`,
+`/api/calculate`, `/api/partners`, `/api/health` — `/api/result` is
+**not** part of the frozen contract. It exists only so Pair 2 (frontend)
+can start building/testing the Result screen against a real combined
+response while Ruchit's `/api/recommend` is still in progress.
+
+**Status**: TEMPORARY. Must be either:
+1. Replaced — `/api/result` calls the real `/api/recommend` instead of
+   the placeholder rule once it's ready, or
+2. Removed entirely if the team decides frontend should call the three
+   contract endpoints separately instead of one combined one.
+
+**Owner**: Jeet — flag this at the next checkpoint so the team decides
+which path to take before final submission.
