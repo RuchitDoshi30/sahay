@@ -3,7 +3,7 @@
  * Fully conforms to docs/api-contract.md
  */
 
-const API_BASE = '/api';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api';
 
 /**
  * Normalizes form / sessionStorage data into the strict ProfileRequest schema
