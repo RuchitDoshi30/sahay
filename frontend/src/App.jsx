@@ -6,17 +6,21 @@ import Result from './pages/Result'
 import Partners from './pages/Partners'
 import Summary from './pages/Summary'
 
+import { AccessibilityProvider } from './context/AccessibilityContext'
+
 function App() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/result" element={<Result />} />
-                <Route path="/partners" element={<Partners />} />
-                <Route path="/summary" element={<Summary />} />
-            </Routes>
-        </BrowserRouter>
+        <AccessibilityProvider>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/result" element={<Result />} />
+                    <Route path="/partners" element={<Partners />} />
+                    <Route path="/summary" element={<Summary />} />
+                </Routes>
+            </BrowserRouter>
+        </AccessibilityProvider>
     )
 }
 

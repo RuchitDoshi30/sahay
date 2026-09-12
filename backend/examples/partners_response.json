@@ -1,0 +1,54 @@
+{
+  "partners": [
+    {
+      "id": "GJ-RJK-001",
+      "name": "Gujarat Scheduled Castes Development Corporation (GSCDC)",
+      "type": "State Channelizing Agency",
+      "state": "Gujarat",
+      "district": "Rajkot",
+      "address": "District Panchayat Compound, Near Collector Office, Rajkot, Gujarat 360001",
+      "pincode": "360001",
+      "phone": "0281-2471092",
+      "email": "gscdc.rajkot@gujarat.gov.in",
+      "hours": "Mon - Fri: 10:30 AM - 05:30 PM (2nd & 4th Sat closed)",
+      "supported_schemes": ["term_loan", "micro_finance", "udyam_nidhi"],
+      "verified": true,
+      "latitude": 22.3039,
+      "longitude": 70.8022,
+      "distance_km": 0.5,
+      "fund_available": true,
+      "no_overdues": true,
+      "npa_percentage": 2.1,
+      "fund_utilization_pct": 88.5,
+      "rank_score": 98
+    },
+    {
+      "id": "GJ-RJK-002",
+      "name": "Rajkot District Cooperative Bank",
+      "type": "Cooperative Bank",
+      "state": "Gujarat",
+      "district": "Rajkot",
+      "address": "Near Rajkot Railway Station, Rajkot, Gujarat 360001",
+      "pincode": "360001",
+      "phone": "0281-2220192",
+      "email": null,
+      "hours": "Mon - Sat: 10:00 AM - 04:00 PM",
+      "supported_schemes": ["term_loan"],
+      "verified": true,
+      "latitude": 22.3082,
+      "longitude": 70.7969,
+      "distance_km": 0.8,
+      "fund_available": true,
+      "no_overdues": true,
+      "npa_percentage": 2.7,
+      "fund_utilization_pct": 82.0,
+      "rank_score": 91
+    }
+  ],
+  "total": 2,
+  "filter_applied": {
+    "state": "Gujarat",
+    "district": "Rajkot",
+    "scheme_id": "term_loan"
+  }
+}

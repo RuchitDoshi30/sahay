@@ -289,3 +289,47 @@ def test_full_rajkot_journey():
     assert isinstance(partners_data["partners"], list)
     # Partners endpoint must not crash even if zero results
     assert partners_data["total"] >= 0
+
+
+def test_recommend_female_micro_gives_mahila_samridhi():
+    payload = {**RAJKOT, "project_cost": 100000, "gender": "female"}
+    resp = client.post("/api/recommend", json=payload)
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["eligible"] is True
+    assert data["recommended_scheme"]["id"] == "mahila_samridhi"
+
+
+def test_recommend_green_business_route():
+    payload = {**RAJKOT, "activity_type": "solar energy installation", "project_cost": 400000}
+    resp = client.post("/api/recommend", json=payload)
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["eligible"] is True
+    assert data["recommended_scheme"]["id"] == "green_business"
+
+
+def test_recommend_vocational_education_route():
+    payload = {
+        **RAJKOT,
+        "purpose": "education",
+        "activity_type": "iti skill diploma",
+        "project_cost": 300000,
+    }
+    resp = client.post("/api/recommend", json=payload)
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["eligible"] is True
+    assert data["recommended_scheme"]["id"] == "vocational_education"
+
+
+def test_partners_new_schemes_return_200():
+    for sid in ("mahila_samridhi", "green_business", "vocational_education"):
+        resp = client.get("/api/partners", params={
+            "state": "Gujarat",
+            "district": "Rajkot",
+            "scheme_id": sid,
+        })
+        assert resp.status_code == 200
+        assert resp.json()["filter_applied"]["scheme_id"] == sid
+

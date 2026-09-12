@@ -1,0 +1,135 @@
+export const TRANSLATIONS = {
+  en: {
+    // Brand & Nav
+    brandName: "Sahay",
+    brandSubtitle: "Scheme Guidance Platform",
+    howItWorks: "How it works",
+    whySahay: "Why Sahay?",
+    sahajMode: "🌿 Sahaj Mode (Simple View)",
+    standardMode: "Standard View",
+    sahajModeHelp: "Grassroots plain-language mode without banking jargon",
+
+    // Common Buttons
+    back: "Back",
+    next: "Next",
+    continue: "Continue",
+    submit: "Find Eligible Schemes",
+    viewDetails: "View Details",
+    selectPartner: "Select Partner ✓",
+    printPlan: "Print Action Plan",
+    shareWhatsApp: "Share to WhatsApp",
+    callOffice: "Call Office",
+    getDirections: "Get Directions",
+    readAloud: "Listen",
+    stopAudio: "Stop",
+    step3of4: "STEP 03 of 04",
+    step4of4: "STEP 04 of 04",
+    activeScheme: "Active Scheme",
+    servicingDistrict: "Servicing District",
+    changeScheme: "← Change Scheme",
+    proceedToSummary: "Proceed to Summary →",
+    selectedPartnerBadge: "✓ SELECTED CHANNEL PARTNER",
+    confirmPartnerAction: "Confirm Partner & View Action Plan →",
+    antiMiddlemanTag: "⚠️ 100% FREE GOVERNMENT SERVICE",
+    antiMiddlemanSub: "SC Beneficiaries: DO NOT pay any commission to brokers or agents. All forms and processing are 100% FREE.",
+
+    // Profile Page
+    profileTitle: "Tell us about your business or education plan.",
+    profileSubtitle: "We match you with official NSFDC concessional loan schemes in under 60 seconds.",
+    secIncome: "Annual Household Income",
+    secIncomeHelp: "Total family income from all sources. Statutory ceiling is ₹5,00,000/yr.",
+    secPurpose: "Purpose of Loan",
+    secPurposeHelp: "Choose whether you are starting a business or funding education.",
+    purposeBusiness: "Business & Self-Employment",
+    purposeBusinessDesc: "MSME, dairy, shops, small enterprise, green business.",
+    purposeEducation: "Higher & Vocational Education",
+    purposeEducationDesc: "College degrees, polytechnic, ITI & skill certification.",
+    secGender: "Applicant Gender",
+    secGenderHelp: "Special concessional schemes like Mahila Samridhi Yojana (5% p.a.) are reserved exclusively for women.",
+    genderFemale: "Female",
+    genderMale: "Male",
+    genderOther: "Other",
+    secCost: "Estimated Project / Course Cost",
+    secCostHelp: "Enter the total amount needed for equipment, livestock, course fees, or setup.",
+    secActivity: "Specific Activity Type",
+    secActivityHelp: "Helps match specialized low-interest schemes (e.g., Green Business at 6% or Vocational at 6.5%).",
+    secLocation: "State and District",
+    secLocationHelp: "Used to locate authorized nodal offices and banks in your area.",
+    secCertificate: "Do you have a valid Scheduled Caste (SC) certificate?",
+    secCertHelp: "Required by the Ministry of Social Justice and Empowerment for concessional lending.",
+    certYes: "Yes, I have it",
+    certNo: "No / Not yet",
+
+    // Result Page
+    resultTitle: "Your Recommended Scheme",
+    resultSubtitle: "Evaluated against official NSFDC statutory guidelines.",
+    recommendedBadge: "RECOMMENDED CONCESSIONAL SCHEME",
+    concessionalInterest: "Concessional Interest",
+    maxLimit: "Maximum Project Ceiling",
+    statutoryTenure: "Repayment Tenure",
+    moratorium: "Moratorium Period",
+    whyRecommended: "Why this scheme is recommended for you",
+    otherSchemes: "Other Schemes Considered",
+
+    // Financial Calculation (Standard vs Sahaj)
+    calcLoanAmount: "Sanctioned Loan Amount",
+    calcOwnContribution: "Promoter Margin (Own Contribution)",
+    calcMonthlyEmi: "Indicative Monthly EMI",
+    calcTotalRepayable: "Total Repayable Amount",
+    calcTenureMonths: "Tenure",
+    calcMoratoriumMonths: "Moratorium (Grace Period)",
+
+    // Sahaj Plain Language overrides
+    sahajLoanAmount: "Government Loan Support",
+    sahajOwnContribution: "Your Own Investment Needed",
+    sahajMonthlyEmi: "Estimated Monthly Payment",
+    sahajTotalRepayable: "Total You Return to Bank",
+    sahajTenureMonths: "Years to Repay",
+    sahajMoratoriumMonths: "First Months Free of Installments",
+
+    // Partners Page
+    partnersTitle: "Find the right partner near you.",
+    partnersSubtitle: "Verified State Channelising Agencies (SCAs) and Bank Branches authorized for your scheme.",
+    searchPlaceholder: "Search by bank name or district...",
+    activeLendingQuota: "Active Lending Quota",
+    cleanRecoveryAudit: "Zero Default Overdues",
+    grossNpa: "Gross NPA",
+    quotaDisbursal: "Quota Disbursal",
+    priorityScore: "Priority Rank",
+
+    // Sahaj Partner overrides
+    sahajSafeOffice: "Safe Government Office (Middleman-Free)",
+    sahajLoanGuaranteed: "Active Lending Capital Available",
+    sahajNpaSimple: "Reliable Branch (No Loan Freezes)",
+
+    // Anti-Middleman
+    antiMiddlemanTitle: "100% Free Government Service • Protect Yourself From Middlemen",
+    antiMiddlemanNotice: "Never pay any commission, bribe, or fee to any broker or agent. All application forms and scheme guidance under NSFDC are strictly free. Walk directly into the authorized office listed below.",
+
+    // Summary & Checklist
+    summaryTitle: "Official Citizen Action Plan & Dossier",
+    summarySubtitle: "Your personalized step-by-step roadmap to receive your concessional loan without delays.",
+    docChecklistTitle: "Required Documents Checklist",
+    docChecklistHelp: "Carry original copies plus 2 self-attested photocopies of each document to the partner office:",
+    docScTitle: "SC Caste Certificate",
+    docScDesc: "Issued by competent revenue authority (Tahsildar / SDM / DM).",
+    docIncomeTitle: "Annual Income Certificate",
+    docIncomeDesc: "Issued by competent authority proving family income under ₹5 Lakhs.",
+    docIdTitle: "Identity Proof (Aadhaar / Voter ID)",
+    docIdDesc: "Valid Aadhaar Card or Voter Identity Card.",
+    docBankTitle: "Aadhaar-Linked Bank Passbook",
+    docBankDesc: "Active savings bank account with DBT linkage.",
+    docEstimateTitle: "Project Proposal / Cost Quotation",
+    docEstimateDesc: "Vendor estimate for machinery, livestock, equipment, or college fee schedule.",
+
+    // Action Steps
+    step1Title: "Gather Required Documents",
+    step1Desc: "Collect the 5 verified documents above with 2 photocopies of each.",
+    step2Title: "Visit the Authorized Office",
+    step2Desc: "Meet the designated NSFDC desk officer at the official address shown above.",
+    step3Title: "Submit Scheme Application",
+    step3Desc: "Fill out the official free application form. No application fee is charged.",
+    step4Title: "Field Verification & Disbursal",
+    step4Desc: "Nodal officer inspects your project proposal and disburses funds to your Aadhaar-linked account."
+  }
+};

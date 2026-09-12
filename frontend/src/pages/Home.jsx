@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-
+import Navbar from '../components/Navbar'
 function Home() {
     const navigate = useNavigate()
 
@@ -11,33 +11,7 @@ function Home() {
         <div className="home-page">
 
             {/* ================= NAVBAR ================= */}
-            <nav className="site-navbar">
-                <div className="navbar-inner">
-
-                    <div className="site-brand">
-                        <div className="brand-logo">S</div>
-
-                        <div className="brand-text">
-                            <div className="brand-name">Sahay</div>
-                            <div className="brand-subtitle">
-                                Scheme Guidance Platform
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="navbar-links">
-                        <a href="#how-it-works">How it works</a>
-                        <a href="#why-sahay">Why Sahay?</a>
-
-                        <button className="language-selector">
-                            EN
-                            <span>⌄</span>
-                        </button>
-                    </div>
-
-                </div>
-            </nav>
-
+            <Navbar />
 
             {/* ================= HERO ================= */}
             <main>
@@ -48,7 +22,7 @@ function Home() {
 
                         <div className="eyebrow">
                             <span className="eyebrow-dot"></span>
-                            A simpler way to find the right path
+                            Official NSFDC Citizen Guidance Platform
                         </div>
 
                         <h1>
@@ -58,9 +32,7 @@ function Home() {
                         </h1>
 
                         <p className="hero-description">
-                            Tell us what you need, and we'll help you understand
-                            which scheme may fit, what the financial estimate looks
-                            like, and where you can go next.
+                            Tell us what you need, and we'll help you understand which scheme may fit, what the financial estimate looks like, and where you can go next.
                         </p>
 
                         <div className="hero-actions">
@@ -81,14 +53,14 @@ function Home() {
                                         ?.scrollIntoView({ behavior: 'smooth' })
                                 }}
                             >
-                                See how it works
+                                How it works
                             </button>
 
                         </div>
 
                         <div className="trust-note">
-                            <span>✓</span>
-                            Simple guidance • Indicative estimates • Suitable partner discovery
+                            <span>🛡️</span>
+                            Simple guidance • 100% Free Govt Service • Zero Middleman Protection
                         </div>
 
                     </div>

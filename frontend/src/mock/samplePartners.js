@@ -16,7 +16,12 @@ export const SAMPLE_PARTNERS = [
         reason: 'Supports SME Business Loan and serves Rajkot area.',
         verified: false,
         rank_score: 95,
-        distance_km: 4.2
+        distance_km: 4.2,
+        fund_available: true,
+        no_overdues: true,
+        npa_percentage: 1.8,
+        fund_utilization_pct: 79.2,
+        eligible_for_routing: true,
     },
     {
         id: 'canara-rajkot',
@@ -35,7 +40,12 @@ export const SAMPLE_PARTNERS = [
         reason: 'Supports Engineering & Agri Credit and serves Saurashtra Region.',
         verified: false,
         rank_score: 92,
-        distance_km: 4.9
+        distance_km: 4.9,
+        fund_available: true,
+        no_overdues: true,
+        npa_percentage: 2.9,
+        fund_utilization_pct: 81.5,
+        eligible_for_routing: true,
     },
     {
         id: 'hdfc-ahmedabad',
@@ -54,7 +64,12 @@ export const SAMPLE_PARTNERS = [
         reason: 'Prototype partner supporting PMMY / Commercial Loan.',
         verified: false,
         rank_score: 80,
-        distance_km: 203.1
+        distance_km: 203.1,
+        fund_available: true,
+        no_overdues: true,
+        npa_percentage: 1.5,
+        fund_utilization_pct: 91.0,
+        eligible_for_routing: true,
     },
     {
         id: 'gscdc-rajkot',
@@ -73,7 +88,12 @@ export const SAMPLE_PARTNERS = [
         reason: 'Official nodal agency for direct capital subsidy disbursement and PM-AJAY application processing.',
         verified: true,
         rank_score: 98,
-        distance_km: 1.2
+        distance_km: 1.2,
+        fund_available: true,
+        no_overdues: true,
+        npa_percentage: 2.1,
+        fund_utilization_pct: 88.5,
+        eligible_for_routing: true,
     },
     {
         id: 'sbi-main-rajkot',
@@ -92,6 +112,11 @@ export const SAMPLE_PARTNERS = [
         reason: 'Lead bank office for Rajkot district with dedicated Stand-Up India & MSME credit cell.',
         verified: true,
         rank_score: 95,
-        distance_km: 2.1
+        distance_km: 2.1,
+        fund_available: true,
+        no_overdues: true,
+        npa_percentage: 2.4,
+        fund_utilization_pct: 84.0,
+        eligible_for_routing: true,
     }
 ]

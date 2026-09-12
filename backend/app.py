@@ -4,7 +4,17 @@ from routes.partners import router as partners_router
 from routes.recommend import router as recommend_router
 from routes.result import router as result_router
 
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI(title="Sahay - SIH26092")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(recommend_router)
 app.include_router(calculate_router)
